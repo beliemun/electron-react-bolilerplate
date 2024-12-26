@@ -1,5 +1,5 @@
 /**
- * Webpack config for production electron main process
+ * 프로덕션용 Electron 메인 프로세스를 위한 Webpack 설정
  */
 
 import path from 'path';
@@ -50,18 +50,14 @@ const configuration: webpack.Configuration = {
     }),
 
     /**
-     * Create global constants which can be configured at compile time.
-     *
-     * Useful for allowing different behaviour between development builds and
-     * release builds
-     *
-     * NODE_ENV should be production so that modules do not perform certain
-     * development checks
+     * 컴파일 시간에 구성할 수 있는 전역 상수를 생성
+     * 개발 빌드와 릴리스 빌드 간의 다른 동작을 허용하는 데 유용
+     * NODE_ENV는 프로덕션이어야 하므로 모듈이 특정 개발 검사를 수행하지 않도록 함
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
-      DEBUG_PROD: false,
-      START_MINIMIZED: false,
+      DEBUG_PROD: 'false', // false > 'false' 변경
+      START_MINIMIZED: 'false', // false > 'false' 변경
     }),
 
     new webpack.DefinePlugin({

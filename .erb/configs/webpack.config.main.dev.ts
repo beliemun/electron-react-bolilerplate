@@ -1,5 +1,5 @@
 /**
- * Webpack config for development electron main process
+ * 개발용 Electron 메인 프로세스를 위한 Webpack 설정
  */
 
 import path from 'path';
@@ -10,8 +10,7 @@ import checkNodeEnv from '../scripts/check-node-env';
 import baseConfig from './webpack.config.base';
 import webpackPaths from './webpack.paths';
 
-// When an ESLint server is running, we can't set the NODE_ENV so we'll check if it's
-// at the dev webpack config is not accidentally run in a production environment
+// ESLint 서버가 실행 중일 때는 NODE_ENV를 설정할 수 없으므로, 프로덕션 환경에서 dev webpack 설정이 실수로 실행되지 않도록 확인
 if (process.env.NODE_ENV === 'production') {
   checkNodeEnv('development');
 }
@@ -49,10 +48,9 @@ const configuration: webpack.Configuration = {
     }),
   ],
 
-  /**
-   * Disables webpack processing of __dirname and __filename.
-   * If you run the bundle in node.js it falls back to these values of node.js.
-   * https://github.com/webpack/webpack/issues/2010
+  /**  __dirname 및 __filename의 웹팩 처리를 비활성화.
+   *  번들을 node.js에서 실행하면 node.js의 해당 값으로 대체.
+   *  https://github.com/webpack/webpack/issues/2010
    */
   node: {
     __dirname: false,

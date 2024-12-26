@@ -4,7 +4,7 @@
     ".prettierrc": "jsonc",
     ".eslintignore": "ignore"
   },
-  
+
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -26,5 +26,19 @@
     "test/**/__snapshots__": true,
     "package-lock.json": true,
     "*.{css,sass,scss}.d.ts": true
+  },
+
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "paths": {
+    "@assets/*": ["src/renderer/assets/*"],
+    "@common/*": ["src/renderer/common/*"],
+    "@components/*": ["src/renderer/components/*"],
+    "@hooks/*": ["src/renderer/hooks/*"],
+    "@libs/*": ["src/renderer/libs/*"],
+    "@pages/*": ["src/renderer/pages/*"],
+    "@routes/*": ["src/renderer/routes/*"],
+    "@stores/*": ["src/renderer/stores/*"],
+    "@styles/*": ["src/renderer/styles/*"]
   }
 }

@@ -1,11 +1,12 @@
 /**
- * Base webpack config used across other specific configs
+ * 다른 특정 설정에 사용되는 기본 Webpack 설정
  */
 
 import webpack from 'webpack';
 import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
 import webpackPaths from './webpack.paths';
 import { dependencies as externals } from '../../release/app/package.json';
+import path from 'path';
 
 const configuration: webpack.Configuration = {
   externals: [...Object.keys(externals || {})],
@@ -20,7 +21,7 @@ const configuration: webpack.Configuration = {
         use: {
           loader: 'ts-loader',
           options: {
-            // Remove this line to enable type checking in webpack builds
+            // 웹팩 빌드 시 타입 체크를 활성화하려면 이 줄을 제거
             transpileOnly: true,
             compilerOptions: {
               module: 'esnext',
@@ -40,12 +41,22 @@ const configuration: webpack.Configuration = {
   },
 
   /**
-   * Determine the array of extensions that should be used to resolve modules.
+   * 모듈을 해석할 때 사용해야 하는 확장자의 배열을 결정
    */
   resolve: {
+    alias: {
+      '@assets': path.resolve(__dirname, 'src/renderer/assets'),
+      '@common': path.resolve(__dirname, 'src/renderer/common'),
+      '@components': path.resolve(__dirname, 'src/renderer/components'),
+      '@hooks': path.resolve(__dirname, 'src/renderer/hooks'),
+      '@libs': path.resolve(__dirname, 'src/renderer/libs'),
+      '@pages': path.resolve(__dirname, 'src/renderer/pages'),
+      '@routes': path.resolve(__dirname, 'src/renderer/routes'),
+      '@stores': path.resolve(__dirname, 'src/renderer/stores'),
+      '@styles': path.resolve(__dirname, 'src/renderer/styles'),
+    },
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
-    // There is no need to add aliases here, the paths in tsconfig get mirrored
     plugins: [new TsconfigPathsPlugins()],
   },
 

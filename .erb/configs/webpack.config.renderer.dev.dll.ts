@@ -1,5 +1,5 @@
 /**
- * Builds the DLL for development electron renderer process
+ * 개발용 Electron 렌더러 프로세스를 위한 DLL을 빌드합니다
  */
 
 import webpack from 'webpack';
@@ -16,17 +16,13 @@ const dist = webpackPaths.dllPath;
 
 const configuration: webpack.Configuration = {
   context: webpackPaths.rootPath,
-
   devtool: 'eval',
-
   mode: 'development',
-
   target: 'electron-renderer',
-
   externals: ['fsevents', 'crypto-browserify'],
 
   /**
-   * Use `module` from `webpack.config.renderer.dev.js`
+   * `webpack.config.renderer.dev.js`에서 `module`을 사용
    */
   module: require('./webpack.config.renderer.dev').default.module,
 
@@ -50,13 +46,9 @@ const configuration: webpack.Configuration = {
     }),
 
     /**
-     * Create global constants which can be configured at compile time.
-     *
-     * Useful for allowing different behaviour between development builds and
-     * release builds
-     *
-     * NODE_ENV should be production so that modules do not perform certain
-     * development checks
+     * 컴파일 시간에 구성할 수 있는 전역 상수를 생성합
+     * 개발 빌드와 릴리스 빌드 간의 다른 동작을 허용하는 데 유용
+     * NODE_ENV는 프로덕션이어야 하므로 모듈이 특정 개발 검사를 수행하지 않도록 함
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',

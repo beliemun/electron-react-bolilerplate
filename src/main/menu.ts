@@ -112,7 +112,7 @@ export default class MenuBuilder {
         },
         {
           label: 'Toggle Full Screen',
-          accelerator: 'Ctrl+Command+F',
+          accelerator: 'Command+F',
           click: () => {
             this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
           },
@@ -131,7 +131,7 @@ export default class MenuBuilder {
       submenu: [
         {
           label: 'Toggle Full Screen',
-          accelerator: 'Ctrl+Command+F',
+          accelerator: 'Command+F',
           click: () => {
             this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
           },

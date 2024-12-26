@@ -1,7 +1,3 @@
-/**
- * Build config for electron renderer process
- */
-
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -18,15 +14,20 @@ import deleteSourceMaps from '../scripts/delete-source-maps';
 checkNodeEnv('production');
 deleteSourceMaps();
 
+const postcssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      plugins: [require('tailwindcss'), require('autoprefixer')],
+    },
+  },
+};
+
 const configuration: webpack.Configuration = {
   devtool: 'source-map',
-
   mode: 'production',
-
   target: ['web', 'electron-renderer'],
-
   entry: [path.join(webpackPaths.srcRendererPath, 'index.tsx')],
-
   output: {
     path: webpackPaths.distRendererPath,
     publicPath: './',
@@ -39,30 +40,44 @@ const configuration: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.s?(a|c)ss$/,
+        test: /\.s?css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader, // CSS 파일을 별도로 추출하여 성능을 최적화하고, 브라우저가 CSS 파일을 캐싱
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              sourceMap: true,
+              sourceMap: false, // 프로덕션에서는 소스맵 비활성화
               importLoaders: 1,
             },
           },
-          'sass-loader',
+          postcssLoader,
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'), // Dart Sass 사용 강제
+            },
+          },
         ],
         include: /\.module\.s?(c|a)ss$/,
       },
       {
-        test: /\.s?(a|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.s?css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          postcssLoader,
+        ],
         exclude: /\.module\.s?(c|a)ss$/,
       },
       // Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]', // 파일 이름을 원래 이름으로 유지하고 fonts 폴더에 저장
+        },
       },
       // Images
       {
@@ -97,15 +112,6 @@ const configuration: webpack.Configuration = {
   },
 
   plugins: [
-    /**
-     * Create global constants which can be configured at compile time.
-     *
-     * Useful for allowing different behaviour between development builds and
-     * release builds
-     *
-     * NODE_ENV should be production so that modules do not perform certain
-     * development checks
-     */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
       DEBUG_PROD: false,

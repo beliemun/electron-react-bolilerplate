@@ -1,12 +1,8 @@
 /* eslint global-require: off, no-console: off, promise/always-return: off */
 
 /**
- * This module executes inside of electron's main process. You can start
- * electron renderer process from here and communicate with the other processes
- * through IPC.
- *
- * When running `npm run build` or `npm run build:main`, this file is compiled to
- * `./src/main.js` using webpack. This gives us some performance wins.
+ * 이 모듈은 Electron의 메인 프로세스 내에서 실행됨. 여기에서 Electron 렌더러 프로세스를 시작하고 IPC를 통해 다른 프로세스와 통신할 수 있음.
+ * `npm run build` 또는 `npm run build:main`을 실행할 때, Webpack을 사용하여 `./src/main.js`로 컴파일 됨.
  */
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
@@ -43,7 +39,14 @@ if (isDebug) {
   require('electron-debug')();
 }
 
+// DevTools Extensions 설치 함수
 const installExtensions = async () => {
+  const SKIP_DEVTOOLS = process.env.SKIP_DEVTOOLS === 'true'; // SKIP_DEVTOOLS 환경 변수를 확인
+  if (SKIP_DEVTOOLS) {
+    console.log('Skipping DevTools Extensions installation.');
+    return;
+  }
+
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS'];
@@ -81,6 +84,10 @@ const createWindow = async () => {
     },
   });
 
+  if (isDebug) {
+    mainWindow.webContents.openDevTools({ mode: 'detach' });
+  }
+
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
   mainWindow.on('ready-to-show', () => {
@@ -101,24 +108,18 @@ const createWindow = async () => {
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 
-  // Open urls in the user's browser
+  // URL을 사용자의 브라우저를 실행
   mainWindow.webContents.setWindowOpenHandler((edata) => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
 
-  // Remove this if your app does not use auto updates
+  // 앱이 자동 업데이트를 사용하지 않는 경우 이 부분을 제거
   // eslint-disable-next-line
   new AppUpdater();
 };
 
-/**
- * Add event listeners...
- */
-
 app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
-  // after all windows have been closed
   if (process.platform !== 'darwin') {
     app.quit();
   }
@@ -129,8 +130,7 @@ app
   .then(() => {
     createWindow();
     app.on('activate', () => {
-      // On macOS it's common to re-create a window in the app when the
-      // dock icon is clicked and there are no other windows open.
+      // macOS에서는 독의 아이콘을 클릭하고 다른 창이 열려 있지 않으면 애플리케이션에서 창을 다시 만드는 것이 일반적.
       if (mainWindow === null) createWindow();
     });
   })
