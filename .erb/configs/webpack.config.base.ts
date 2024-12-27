@@ -3,6 +3,23 @@ import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
 import path from 'path';
 import { dependencies as externals } from '../../release/app/package.json';
 import webpackPaths from './webpack.paths';
+import dotenv from 'dotenv';
+
+// Load environment variables
+const envFile = `.env.${process.env.NODE_ENV || 'development'}`;
+const env = dotenv.config({
+  path: path.resolve(__dirname, '../../', envFile),
+}).parsed;
+
+const envKeys = env
+  ? Object.keys(env).reduce(
+      (prev, next) => {
+        prev[`process.env.${next}`] = JSON.stringify(env[next]);
+        return prev;
+      },
+      {} as Record<string, string>,
+    )
+  : {};
 
 const configuration: webpack.Configuration = {
   externals: [...Object.keys(externals || {})],
@@ -48,8 +65,9 @@ const configuration: webpack.Configuration = {
 
   plugins: [
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production',
+      NODE_ENV: process.env.NODE_ENV || 'production', // 기본 NODE_ENV 전달
     }),
+    new webpack.DefinePlugin(envKeys), // DefinePlugin으로 환경 변수 전달
   ],
 };
 

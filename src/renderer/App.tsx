@@ -1,18 +1,24 @@
+import { privateRoutes, publicRoutes } from '@routes';
+import { PrivateGuard, PublicGuard } from '@routes/components';
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-
-function Hello() {
-  return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-tr from-[#7a2c9e] via-[#dd5789] to-[#fedc2a]">
-      <h1 className="text-4xl font-bold text-white">Hello, TailwindCSS!</h1>
-    </div>
-  );
-}
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Hello />} />
+        {/* Public Routes */}
+        <Route element={<PublicGuard />}>
+          {publicRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
+
+        {/* Private Routes */}
+        <Route element={<PrivateGuard />}>
+          {privateRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
       </Routes>
     </Router>
   );

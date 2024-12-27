@@ -21,7 +21,10 @@ const skipDLLs =
   module.parent?.filename.includes('webpack.config.renderer.dev.dll') ||
   module.parent?.filename.includes('webpack.config.eslint');
 
-if (!skipDLLs && !(fs.existsSync(webpackPaths.dllPath) && fs.existsSync(manifest))) {
+if (
+  !skipDLLs &&
+  !(fs.existsSync(webpackPaths.dllPath) && fs.existsSync(manifest))
+) {
   console.log(
     chalk.black.bgYellow.bold(
       'The DLL files are missing. Sit back while we build them for you with "npm run build-dll"',
@@ -63,6 +66,13 @@ const configuration: webpack.Configuration = {
 
   module: {
     rules: [
+      {
+        test: /\.lottie$/,
+        type: 'asset/resource', // Webpack 5 내장 기능 사용
+        generator: {
+          filename: 'assets/lotties/[name][ext]', // 빌드 출력 경로 설정
+        },
+      },
       {
         test: /\.s?css$/,
         use: [
@@ -190,7 +200,9 @@ const configuration: webpack.Configuration = {
       console.log('Starting Main Process...');
       let args = ['run', 'start:main'];
       if (process.env.MAIN_ARGS) {
-        args = args.concat(['--', ...process.env.MAIN_ARGS.matchAll(/"[^"]+"|[^\s"]+/g)].flat());
+        args = args.concat(
+          ['--', ...process.env.MAIN_ARGS.matchAll(/"[^"]+"|[^\s"]+/g)].flat(),
+        );
       }
       spawn('npm', args, {
         shell: true,

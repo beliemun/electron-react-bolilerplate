@@ -40,6 +40,13 @@ const configuration: webpack.Configuration = {
   module: {
     rules: [
       {
+        test: /\.lottie$/,
+        type: 'asset/resource', // Webpack 5 내장 기능 사용
+        generator: {
+          filename: 'assets/lotties/[name][ext]', // 빌드 출력 경로 설정
+        },
+      },
+      {
         test: /\.s?css$/,
         use: [
           MiniCssExtractPlugin.loader, // CSS 파일을 별도로 추출하여 성능을 최적화하고, 브라우저가 CSS 파일을 캐싱
@@ -63,7 +70,12 @@ const configuration: webpack.Configuration = {
       },
       {
         test: /\.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', postcssLoader],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          postcssLoader,
+        ],
         exclude: /\.module\.s?(c|a)ss$/,
       },
       // Fonts

@@ -1,9 +1,5 @@
 /* eslint global-require: off, no-console: off, promise/always-return: off */
 
-/**
- * 이 모듈은 Electron의 메인 프로세스 내에서 실행됨. 여기에서 Electron 렌더러 프로세스를 시작하고 IPC를 통해 다른 프로세스와 통신할 수 있음.
- * `npm run build` 또는 `npm run build:main`을 실행할 때, Webpack을 사용하여 `./src/main.js`로 컴파일 됨.
- */
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
@@ -32,7 +28,8 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-const isDebug = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+const isDebug =
+  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
 if (isDebug) {
   require('electron-debug')();
@@ -40,12 +37,6 @@ if (isDebug) {
 
 // DevTools Extensions 설치 함수
 const installExtensions = async () => {
-  const SKIP_DEVTOOLS = process.env.SKIP_DEVTOOLS === 'true'; // SKIP_DEVTOOLS 환경 변수를 확인
-  if (SKIP_DEVTOOLS) {
-    console.log('Skipping DevTools Extensions installation.');
-    return Promise.resolve(); // 명시적으로 Promise 반환
-  }
-
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS'];

@@ -2,10 +2,17 @@ import '@styles/font.css';
 import '@styles/tailwind.css';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import AntdProvider from '@libs/antd/antd-provider';
+import { Alert } from '@components/molecules';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
-root.render(<App />);
+root.render(
+  <AntdProvider>
+    <App />
+    <Alert />
+  </AntdProvider>,
+);
 
 // calling IPC exposed from preload script
 window.electron.ipcRenderer.once('ipc-example', (arg) => {
