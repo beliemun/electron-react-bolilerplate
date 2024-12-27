@@ -1,25 +1,27 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@assets": ["renderer/assets"],
-      "@assets/*": ["renderer/assets/*"],
-      "@common": ["renderer/common"],
-      "@common/*": ["renderer/common/*"],
-      "@components": ["renderer/components"],
-      "@components/*": ["renderer/components/*"],
-      "@hooks": ["renderer/hooks"],
-      "@hooks/*": ["renderer/hooks/*"],
-      "@libs": ["renderer/libs"],
-      "@libs/*": ["renderer/libs/*"],
-      "@pages": ["renderer/pages"],
-      "@pages/*": ["renderer/pages/*"],
-      "@routes": ["renderer/routes"],
-      "@routes/*": ["renderer/routes/*"],
-      "@stores": ["renderer/stores"],
-      "@stores/*": ["renderer/stores/*"],
-      "@styles": ["renderer/styles"],
-      "@styles/*": ["renderer/styles/*"]
+      "@assets": ["src/renderer/assets"],
+      "@assets/*": ["src/renderer/assets/*"],
+      "@common": ["src/renderer/common"],
+      "@common/*": ["src/renderer/common/*"],
+      "@components": ["src/renderer/components"],
+      "@components/*": ["src/renderer/components/*"],
+      "@hooks": ["src/renderer/hooks"],
+      "@hooks/*": ["src/renderer/hooks/*"],
+      "@libs": ["src/renderer/libs"],
+      "@libs/*": ["src/renderer/libs/*"],
+      "@pages": ["src/renderer/pages"],
+      "@pages/*": ["src/renderer/pages/*"],
+      "@routes": ["src/renderer/routes"],
+      "@routes/*": ["src/renderer/routes/*"],
+      "@stores": ["src/renderer/stores"],
+      "@stores/*": ["src/renderer/stores/*"],
+      "@styles": ["src/renderer/styles"],
+      "@styles/*": ["src/renderer/styles/*"],
+      "@release": ["release"],
+      "@release/*": ["release/*"]
     }
   }
 }

@@ -1,12 +1,8 @@
-/**
- * 다른 특정 설정에 사용되는 기본 Webpack 설정
- */
-
 import webpack from 'webpack';
 import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
-import webpackPaths from './webpack.paths';
-import { dependencies as externals } from '../../release/app/package.json';
 import path from 'path';
+import { dependencies as externals } from '../../release/app/package.json';
+import webpackPaths from './webpack.paths';
 
 const configuration: webpack.Configuration = {
   externals: [...Object.keys(externals || {})],
@@ -40,24 +36,14 @@ const configuration: webpack.Configuration = {
     },
   },
 
-  /**
-   * 모듈을 해석할 때 사용해야 하는 확장자의 배열을 결정
-   */
   resolve: {
-    alias: {
-      '@assets': path.resolve(__dirname, 'src/renderer/assets'),
-      '@common': path.resolve(__dirname, 'src/renderer/common'),
-      '@components': path.resolve(__dirname, 'src/renderer/components'),
-      '@hooks': path.resolve(__dirname, 'src/renderer/hooks'),
-      '@libs': path.resolve(__dirname, 'src/renderer/libs'),
-      '@pages': path.resolve(__dirname, 'src/renderer/pages'),
-      '@routes': path.resolve(__dirname, 'src/renderer/routes'),
-      '@stores': path.resolve(__dirname, 'src/renderer/stores'),
-      '@styles': path.resolve(__dirname, 'src/renderer/styles'),
-    },
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
-    plugins: [new TsconfigPathsPlugins()],
+    plugins: [
+      new TsconfigPathsPlugins({
+        configFile: path.resolve(__dirname, '../../tsconfig.json'),
+      }),
+    ],
   },
 
   plugins: [

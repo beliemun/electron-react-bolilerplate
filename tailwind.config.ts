@@ -31,7 +31,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function ({ addUtilities }: any) {
+    function addCustomUtilities({ addUtilities }: any) {
       const newUtilities = {
         '.scrollbar': {
           scrollbarWidth: 'thin',

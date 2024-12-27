@@ -1,18 +1,25 @@
 module.exports = {
-  extends: 'erb',
+  extends: [
+    'erb',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended', // Prettier와 ESLint 통합
+  ],
   plugins: ['@typescript-eslint'],
   rules: {
-    // A temporary hack related to IDE not resolving correct package.json
-    'import/no-extraneous-dependencies': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-filename-extension': 'off',
-    'import/extensions': 'off',
-    'import/no-unresolved': 'off',
-    'import/no-import-module-exports': 'off',
-    'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
-    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-import-module-exports': 'off',
+    'import/no-relative-packages': 'off',
+    'import/no-unresolved': 'off',
+    'no-shadow': 'off',
+    'no-unused-vars': 'off',
+    'prettier/prettier': 'error', // Prettier 포맷과 다른 경우 오류 표시
+    'react/jsx-filename-extension': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   parserOptions: {
     ecmaVersion: 2022,

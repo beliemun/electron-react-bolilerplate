@@ -32,8 +32,7 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-const isDebug =
-  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+const isDebug = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
 if (isDebug) {
   require('electron-debug')();
@@ -44,19 +43,23 @@ const installExtensions = async () => {
   const SKIP_DEVTOOLS = process.env.SKIP_DEVTOOLS === 'true'; // SKIP_DEVTOOLS 환경 변수를 확인
   if (SKIP_DEVTOOLS) {
     console.log('Skipping DevTools Extensions installation.');
-    return;
+    return Promise.resolve(); // 명시적으로 Promise 반환
   }
 
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS'];
 
-  return installer
-    .default(
+  try {
+    await installer.default(
       extensions.map((name) => installer[name]),
       forceDownload,
-    )
-    .catch(console.log);
+    );
+    return Promise.resolve(); // 성공적으로 완료된 경우에도 명시적으로 반환
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err); // 오류가 발생한 경우 명시적으로 오류 반환
+  }
 };
 
 const createWindow = async () => {
