@@ -30,6 +30,7 @@ const config: Config = {
       },
     },
   },
+  darkMode: 'class',
   plugins: [
     function addCustomUtilities({ addUtilities }: any) {
       const newUtilities = {

@@ -1,30 +1,54 @@
-import { cn } from '@common/utils';
-import { Button, Title } from '@components/atoms';
-import { useAlertStore } from '@stores';
+import { Button, Text, Title } from '@components/atoms';
+import { buttonTypes } from '@components/atoms/button/types';
+import { useDarkModeStore } from '@stores';
+import { theme } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const { show } = useAlertStore();
-  const handleShowAlert = () => {
-    show({
-      title: 'This is title',
-      contents:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum vero neque modi explicabo excepturi, mollitia laboriosam exercitationem porro totam est vitae animi esse numquam perspiciatis! Dignissimos recusandae at blanditiis architecto?',
-    });
+  const naviagte = useNavigate();
+  const { isDarkMode, setDarkMode } = useDarkModeStore();
+  const {
+    token: { colorBgBase },
+  } = theme.useToken();
+  const handleClick = () => {
+    setDarkMode(!isDarkMode);
   };
   return (
     <main
-      className={cn(
-        'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 h-screen',
-        'flex flex-col justify-center items-center gap-10',
-      )}
+      style={{ backgroundColor: colorBgBase }}
+      className={'flex flex-col justify-center items-center h-screen gap-10'}
     >
-      <Title type="h1-normal" color="invert">
-        {process.env.REACT_APP_API_BASE_URL ?? 'Undefined'}
-      </Title>
-      <Title type="h3-normal" color="invert">
-        {process.env.NODE_ENV}
-      </Title>
-      <Button onClick={handleShowAlert}>Button</Button>
+      <button onClick={handleClick}>Change</button>
+      <div className="flex flex-col gap-2 pb-6">
+        {buttonTypes.map((type, index) => (
+          <div
+            className="flex flex-row flex-wrap gap-2 px-8 py-2"
+            key={`${type}_${index}`}
+          >
+            <Button buttonSize="xs" buttonStyle={type}>
+              xs {type}
+            </Button>
+            <Button buttonSize="sm" buttonStyle={type}>
+              sm {type}
+            </Button>
+            <Button
+              tooltipTitle="Button"
+              buttonSize="default"
+              buttonStyle={type}
+            >
+              default {type}
+            </Button>
+            <Button buttonSize="default" buttonStyle={type} loading>
+              default {type}
+            </Button>
+            <Button buttonSize="default" buttonStyle={type} disabled>
+              disabled {type}
+            </Button>
+          </div>
+        ))}
+      </div>
+      <Title>DarkMode: {String(isDarkMode)}</Title>
+      <Text>DarkMode: {String(isDarkMode)}</Text>
     </main>
   );
 };

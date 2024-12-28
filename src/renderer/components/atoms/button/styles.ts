@@ -10,7 +10,10 @@ export const buttonStyles = ({
   fullWidth,
   disabled,
   loading,
-}: Omit<ButtonProps, 'tooltipTitle' | 'tooltipStyle' | 'tooltipPlacement' | 'onClick'>): string => {
+}: Omit<
+  ButtonProps,
+  'tooltipTitle' | 'tooltipStyle' | 'tooltipPlacement' | 'onClick'
+>): string => {
   const styles = [''];
   styles.push('transition-all duration-200 ease-in-out');
   // Button Color
@@ -91,7 +94,12 @@ export const buttonStyles = ({
   if (buttonColor === 'gray') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-gray-500', 'active:bg-gray-600', 'hover:bg-gray-400', 'dark:text-black'),
+        cn(
+          'text-white bg-gray-500',
+          'active:bg-gray-600',
+          'hover:bg-gray-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -123,7 +131,12 @@ export const buttonStyles = ({
   if (buttonColor === 'red') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-red-500', 'active:bg-red-600', 'hover:bg-red-400', 'dark:text-black'),
+        cn(
+          'text-white bg-red-500',
+          'active:bg-red-600',
+          'hover:bg-red-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -229,7 +242,12 @@ export const buttonStyles = ({
   if (buttonColor === 'lime') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-lime-500', 'active:bg-lime-600', 'hover:bg-lime-400', 'dark:text-black'),
+        cn(
+          'text-white bg-lime-500',
+          'active:bg-lime-600',
+          'hover:bg-lime-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -335,7 +353,12 @@ export const buttonStyles = ({
   if (buttonColor === 'teal') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-teal-500', 'active:bg-teal-600', 'hover:bg-teal-400', 'dark:text-black'),
+        cn(
+          'text-white bg-teal-500',
+          'active:bg-teal-600',
+          'hover:bg-teal-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -367,7 +390,12 @@ export const buttonStyles = ({
   if (buttonColor === 'cyan') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-cyan-500', 'active:bg-cyan-600', 'hover:bg-cyan-400', 'dark:text-black'),
+        cn(
+          'text-white bg-cyan-500',
+          'active:bg-cyan-600',
+          'hover:bg-cyan-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -399,7 +427,12 @@ export const buttonStyles = ({
   if (buttonColor === 'blue') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-blue-500', 'active:bg-blue-600', 'hover:bg-blue-400', 'dark:text-black'),
+        cn(
+          'text-white bg-blue-500',
+          'active:bg-blue-600',
+          'hover:bg-blue-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -505,7 +538,12 @@ export const buttonStyles = ({
   if (buttonColor === 'pink') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-pink-500', 'active:bg-pink-600', 'hover:bg-pink-400', 'dark:text-black'),
+        cn(
+          'text-white bg-pink-500',
+          'active:bg-pink-600',
+          'hover:bg-pink-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
@@ -537,7 +575,12 @@ export const buttonStyles = ({
   if (buttonColor === 'rose') {
     if (buttonStyle === 'solid') {
       styles.push(
-        cn('text-white bg-rose-500', 'active:bg-rose-600', 'hover:bg-rose-400', 'dark:text-black'),
+        cn(
+          'text-white bg-rose-500',
+          'active:bg-rose-600',
+          'hover:bg-rose-400',
+          'dark:text-black',
+        ),
       );
     } else if (buttonStyle === 'outline') {
       styles.push(
