@@ -1,0 +1,7 @@
+/* ConfigProvider로 수정할 수 있는 필드가 존재하지 않아 강제로 CSS 추가 */
+.ant-popover-open {
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.3) !important;
+}
+.dark .ant-popover-open {
+  box-shadow: 0 0 0 4px rgba(204, 251, 241, 0.3) !important;
+}
