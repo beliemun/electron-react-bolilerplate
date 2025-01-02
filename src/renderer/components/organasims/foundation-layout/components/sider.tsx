@@ -19,14 +19,9 @@ export const Sider: React.FC<SiderProps> = ({ title }) => {
   } = theme.useToken();
 
   const handleClickMenu: MenuProps['onClick'] = ({ key }) => {
-    console.log('key:', key);
     setSelectedKey(key);
     navigate(`/foundation/${key}`);
   };
-
-  useEffect(() => {
-    console.log('selectedKey:', selectedKey);
-  }, [selectedKey]);
 
   return (
     <Layout.Sider

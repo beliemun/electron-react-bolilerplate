@@ -1,7 +1,6 @@
-import { FoundationPage, HomePage } from '@pages';
 import { PATH } from './constants';
 import { Route } from './types';
-import {
+import FoundationPage, {
   AlertPage,
   ButtonPage,
   CheckboxPage,
@@ -23,11 +22,15 @@ import {
   TitlePage,
   TooltipPage,
   TransferPage,
-} from '@pages/foundation';
+} from '@pages/FoundationPage';
 
 export const publicRoutes: Route[] = [
   { path: PATH.HOME, element: <FoundationPage /> },
-  { path: PATH.FOUNDATION, element: <FoundationPage /> },
+];
+
+export const privateRoutes: Route[] = [];
+
+export const foundationRoutes: Route[] = [
   { path: PATH.FOUNDATION_ALERT, element: <AlertPage /> },
   { path: PATH.FOUNDATION_BUTTON, element: <ButtonPage /> },
   { path: PATH.FOUNDATION_CHECKBOX, element: <CheckboxPage /> },
@@ -51,5 +54,3 @@ export const publicRoutes: Route[] = [
   { path: PATH.FOUNDATION_TOOLTIP, element: <TooltipPage /> },
   { path: PATH.FOUNDATION_TRANSFER, element: <TransferPage /> },
 ];
-
-export const privateRoutes: Route[] = [];

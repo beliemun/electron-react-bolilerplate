@@ -1,20 +1,12 @@
 import { Layout } from '@components/atoms';
-import { Contents, Sider } from './components';
+import { Sider } from './components';
+import { Outlet } from 'react-router-dom';
 
-interface FoundationLayoutProps {
-  title?: string;
-  children?: React.ReactNode;
-}
-
-export const FoundationLayout = ({
-  title,
-  children,
-}: FoundationLayoutProps) => {
-  console.log('FoundationLayout');
+export const FoundationLayout = () => {
   return (
     <Layout>
       <Sider title={'Foundation'} />
-      <Contents title={title}>{children}</Contents>
+      <Outlet />
     </Layout>
   );
 };
