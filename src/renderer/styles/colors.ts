@@ -51,7 +51,7 @@ type ColorKeyType =
   | '950';
 
 export const colors: Record<ColorType, Record<ColorKeyType, string>> = {
-  primary: color.teal,
+  primary: color.violet,
   slate: color.slate,
   gray: color.gray,
   red: color.red,
