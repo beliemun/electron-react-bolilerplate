@@ -1,7 +1,31 @@
 export const PATH = {
   // Public Routes
   HOME: '/',
+
+  // Foundation Routes
   FOUNDATION: '/foundation',
+  FOUNDATION_ALERT: '/foundation/alert',
+  FOUNDATION_BUTTON: '/foundation/button',
+  FOUNDATION_CHECKBOX: '/foundation/checkbox',
+  FOUNDATION_COLOR_PALLET: '/foundation/color-pallet',
+  FOUNDATION_COLOR_PICKER: '/foundation/color-picker',
+  FOUNDATION_DATE_PICKER: '/foundation/date-picker',
+  FOUNDATION_DRAWER: '/foundation/drawer',
+  FOUNDATION_FORM: '/foundation/form',
+  FOUNDATION_IMAGE: '/foundation/image',
+  FOUNDATION_INPUT: '/foundation/input',
+  FOUNDATION_MESSAGE: '/foundation/message',
+  FOUNDATION_MODAL: '/foundation/modal',
+  FOUNDATION_RADIO: '/foundation/radio',
+  FOUNDATION_SELECT: '/foundation/select',
+  FOUNDATION_SWITCH: '/foundation/switch',
+  FOUNDATION_TABLE: '/foundation/table',
+  FOUNDATION_TAG: '/foundation/tag',
+  FOUNDATION_TEXT: '/foundation/text',
+  FOUNDATION_TIME_PICKER: '/foundation/time-picker',
+  FOUNDATION_TITLE: '/foundation/title',
+  FOUNDATION_TOOLTIP: '/foundation/tooltip',
+  FOUNDATION_TRANSFER: '/foundation/transfer',
 
   // SAMPLES: '/samples',
   // FRONT_RECOGNITION_TEMP: '/front-recognition-temp',

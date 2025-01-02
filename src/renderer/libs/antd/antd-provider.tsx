@@ -13,8 +13,8 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
           borderRadius: 6,
           wireframe: false,
           fontSize: 14,
-          colorPrimary: colors.teal[500],
-          colorInfo: colors.teal[500],
+          colorPrimary: colors.violet[500],
+          colorInfo: colors.violet[500],
         },
       }}
     >
