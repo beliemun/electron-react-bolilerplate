@@ -12,6 +12,7 @@ export * from './layout';
 export * from './loading';
 export * from './menu';
 export * from './radio';
+export * from './section';
 export * from './select';
 export * from './skeleton';
 export * from './space';
