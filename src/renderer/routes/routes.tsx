@@ -1,3 +1,4 @@
+import { HomePage } from '@pages';
 import { PATH } from './constants';
 import { Route } from './types';
 import FoundationPage, {
@@ -26,12 +27,13 @@ import FoundationPage, {
 } from '@pages/FoundationPage';
 
 export const publicRoutes: Route[] = [
-  { path: PATH.HOME, element: <FoundationPage /> },
+  { path: PATH.HOME, element: <HomePage /> },
 ];
 
 export const privateRoutes: Route[] = [];
 
 export const foundationRoutes: Route[] = [
+  { path: PATH.FOUNDATION, element: <FoundationPage /> },
   { path: PATH.FOUNDATION_ALERT, element: <AlertPage /> },
   { path: PATH.FOUNDATION_BUTTON, element: <ButtonPage /> },
   { path: PATH.FOUNDATION_CHECKBOX, element: <CheckboxPage /> },

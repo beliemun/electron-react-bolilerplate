@@ -1,54 +1,35 @@
-import { Button, Text, Title } from '@components/atoms';
-import { buttonTypes } from '@components/atoms/button/types';
-import { useDarkModeStore } from '@stores';
-import { theme } from 'antd';
+import { Animate, Title } from '@components/atoms';
 import { useNavigate } from 'react-router-dom';
+import BI from '@assets/images/bi_white.png';
 
 const HomePage = () => {
-  const naviagte = useNavigate();
-  const { isDarkMode, setDarkMode } = useDarkModeStore();
-  const {
-    token: { colorBgBase },
-  } = theme.useToken();
-  const handleClick = () => {
-    setDarkMode(!isDarkMode);
-  };
+  const navigate = useNavigate();
+  const handleClickScreen = () => navigate('/foundation');
   return (
     <main
-      style={{ backgroundColor: colorBgBase }}
-      className={'flex flex-col justify-center items-center h-screen gap-10'}
+      onClick={handleClickScreen}
+      className={
+        'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 cursor-pointer overflow-hidden'
+      }
     >
-      <button onClick={handleClick}>Change</button>
-      <div className="flex flex-col gap-2 pb-6">
-        {buttonTypes.map((type, index) => (
-          <div
-            className="flex flex-row flex-wrap gap-2 px-8 py-2"
-            key={`${type}_${index}`}
-          >
-            <Button buttonSize="xs" buttonStyle={type}>
-              xs {type}
-            </Button>
-            <Button buttonSize="sm" buttonStyle={type}>
-              sm {type}
-            </Button>
-            <Button
-              tooltipTitle="Button"
-              buttonSize="default"
-              buttonStyle={type}
-            >
-              default {type}
-            </Button>
-            <Button buttonSize="default" buttonStyle={type} loading>
-              default {type}
-            </Button>
-            <Button buttonSize="default" buttonStyle={type} disabled>
-              disabled {type}
-            </Button>
+      <Animate>
+        <div className="flex flex-col justify-between items-center w-full h-screen p-8">
+          <Title type="h5-regular" className="text-center" color="invert">
+            본 솔루션은 두산 에너빌리티와 프보이의 협력으로 개발되었습니다
+          </Title>
+          <div className="flex flex-col justify-center items-center">
+            <img src={BI} alt="BI" />
+            <Title type="h4-normal" className="mt-4" color="invert">
+              중장비 AI 충돌 방지 솔루션
+            </Title>
           </div>
-        ))}
-      </div>
-      <Title>DarkMode: {String(isDarkMode)}</Title>
-      <Text>DarkMode: {String(isDarkMode)}</Text>
+          <div className="px-12 py-8 rounded-[100px] bg-white/30 animate-pulse">
+            <Title type="h3-normal" color="invert">
+              작업을 시작하려면 화면을 눌러주세요
+            </Title>
+          </div>
+        </div>
+      </Animate>
     </main>
   );
 };
