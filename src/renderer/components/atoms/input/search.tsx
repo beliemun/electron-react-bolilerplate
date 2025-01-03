@@ -4,8 +4,8 @@ import { SearchProps as SearchAntdProps } from 'antd/lib/input';
 import { ForwardedRef, forwardRef } from 'react';
 import { ConfigProvider } from './config-provider';
 import { Text } from '../text';
-import './styles.css';
 import { cn } from '@common/utils';
+import './styles.css';
 
 export interface SearchProps extends SearchAntdProps {
   errors?: string[] | undefined;

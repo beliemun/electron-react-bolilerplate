@@ -11,6 +11,7 @@ export * from './input';
 export * from './layout';
 export * from './loading';
 export * from './menu';
+export * from './message';
 export * from './radio';
 export * from './section';
 export * from './select';

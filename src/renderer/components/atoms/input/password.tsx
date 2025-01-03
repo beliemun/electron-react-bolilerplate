@@ -3,8 +3,8 @@ import { ForwardedRef, forwardRef } from 'react';
 import { ConfigProvider } from './config-provider';
 import PasswordAntd from 'antd/es/input/Password';
 import { Text } from '../text';
-import './styles.css';
 import { cn } from '@common/utils';
+import './styles.css';
 
 export interface PasswordProps extends PasswordAntdProps {
   errors?: string[] | undefined;
