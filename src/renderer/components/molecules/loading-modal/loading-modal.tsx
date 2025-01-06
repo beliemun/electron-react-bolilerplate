@@ -10,8 +10,8 @@ export const LoadingModal = ({
   message = undefined,
   onClose,
 }: LoadingModalProps) => {
-  const [visible, setVisible] = useState(true);
   const { isDarkMode } = useDarkModeStore();
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     setVisible(loading);

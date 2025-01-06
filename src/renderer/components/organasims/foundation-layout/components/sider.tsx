@@ -29,7 +29,6 @@ export const Sider = ({ title }: SiderProps) => {
 
   return (
     <Layout.Sider
-      className="hide-scrollbar"
       theme="light"
       width={256}
       style={{

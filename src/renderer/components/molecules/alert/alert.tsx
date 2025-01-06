@@ -3,9 +3,10 @@ import { Button, Text, Title } from '@components/atoms';
 import { cn } from '@common/utils';
 import { theme } from 'antd';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useAlertStore } from '@stores';
+import { useAlertStore, useDarkModeStore } from '@stores';
 
 export const Alert = () => {
+  const { isDarkMode } = useDarkModeStore();
   const {
     visible,
     size = 480,
@@ -41,10 +42,15 @@ export const Alert = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          style={{ backgroundColor: 'rgba(240, 240, 240, 0.85)' }}
-          className={
-            'fixed flex flex-col justify-center items-center w-full h-full min-h-screen inset-0 m-auto z-40'
-          }
+          style={{
+            backgroundColor: isDarkMode
+              ? 'rgba(30, 30, 30, 0.7)'
+              : 'rgba(240, 240, 240, 0.7)',
+          }}
+          className={cn(
+            'fixed flex flex-col justify-center items-center w-full h-full min-h-screen',
+            'inset-0 m-auto backdrop-blur-sm',
+          )}
         >
           <motion.div
             initial={{ scale: 0.8 }}
