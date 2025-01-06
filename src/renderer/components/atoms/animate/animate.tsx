@@ -21,7 +21,10 @@ const Animate = ({
     <AnimatePresence>
       <motion.div
         style={{ ...style }}
-        className={cn('col-center size-full', className)}
+        className={cn(
+          'flex-col justify-center items-center size-full',
+          className,
+        )}
         key={name}
         variants={animations[type]}
         initial={'initial'}

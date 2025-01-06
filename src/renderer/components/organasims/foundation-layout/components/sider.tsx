@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { theme } from 'antd';
 import { menuItems } from '../data';
 import { Divider, Layout, Menu } from '@components/atoms';
 import { useNavigate } from 'react-router-dom';
 import type { MenuProps } from 'antd';
+import { useDarkModeStore } from '@stores';
+import { Footer } from './footer';
 
 interface SiderProps {
   title?: string;
 }
 
-export const Sider: React.FC<SiderProps> = ({ title }) => {
+export const Sider = ({ title }: SiderProps) => {
   const navigate = useNavigate();
 
   // 상태 타입 지정
@@ -23,17 +25,19 @@ export const Sider: React.FC<SiderProps> = ({ title }) => {
     navigate(`/foundation/${key}`);
   };
 
+  const { isDarkMode, setDarkMode } = useDarkModeStore();
+
   return (
     <Layout.Sider
-      className="hide-scrollba"
+      className="hide-scrollbar"
       theme="light"
-      collapsible
       width={256}
       style={{
         overflow: 'auto',
-        height: `calc(100vh)`,
+        height: `calc(100vh - 60px)`,
         position: 'fixed',
         borderRight: `1px solid ${colorBorder}`,
+        paddingBottom: 60,
       }}
       trigger={null}
     >
@@ -51,6 +55,7 @@ export const Sider: React.FC<SiderProps> = ({ title }) => {
         onClick={handleClickMenu}
         style={{ border: 'none' }}
       />
+      <Footer />
     </Layout.Sider>
   );
 };

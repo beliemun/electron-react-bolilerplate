@@ -15,7 +15,6 @@ export const Modal = ({
   footerDirection = 'right',
   footerFitable = false,
   loading = false,
-  loadingMessage,
   size = 720,
   onClose,
 }: ModalProps) => {
@@ -50,12 +49,13 @@ export const Modal = ({
           exit={{ opacity: 0 }}
           style={{
             backgroundColor: isDarkMode
-              ? 'rgba(30, 30, 30, 0.85)'
-              : 'rgba(240, 240, 240, 0.85)',
+              ? 'rgba(30, 30, 30, 0.7)'
+              : 'rgba(240, 240, 240, 0.7)',
           }}
-          className={
-            'fixed col-center w-full h-full min-h-screen top-0 left-0 bottom-0 right-0 m-auto'
-          }
+          className={cn(
+            'fixed flex flex-col justify-center items-center w-full h-full min-h-screen',
+            'inset-0 m-auto backdrop-blur-sm',
+          )}
         >
           {loading ? (
             <motion.div
@@ -71,14 +71,14 @@ export const Modal = ({
                 width: isSmallMode ? undefined : size,
               }}
               className={cn(
-                `col-center justify-between min-h-[480px] gap-6 p-6`,
+                `flex flex-col justify-center items-center min-h-[480px] gap-6 p-6`,
                 isSmallMode
                   ? 'w-full min-h-[320px] rounded-none'
                   : 'rounded-xl',
               )}
               layoutId="modal-layout"
             >
-              <Loading loadingMessage={loadingMessage} />
+              <Loading color="priarmy" />
             </motion.div>
           ) : (
             <motion.div

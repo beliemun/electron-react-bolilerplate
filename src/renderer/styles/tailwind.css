@@ -7,3 +7,23 @@
     font-family: 'Pretendard', sans-serif;
   }
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+  .row-center {
+    @apply flex flex-row justify-center items-center;
+  }
+  .overflow-label {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* 두 줄 제한 */
+    -webkit-box-orient: vertical;
+  }
+}

@@ -43,12 +43,15 @@ export const Alert = () => {
           exit={{ opacity: 0 }}
           style={{ backgroundColor: 'rgba(240, 240, 240, 0.85)' }}
           className={
-            'fixed flex flex-col justify-center items-center w-full h-full min-h-screen top-0 left-0 bottom-0 right-0 m-auto z-40'
+            'fixed flex flex-col justify-center items-center w-full h-full min-h-screen inset-0 m-auto z-40'
           }
         >
           <motion.div
             initial={{ scale: 0.8 }}
-            animate={{ scale: 1, transition: { type: 'spring', bounce: 0.5, duration: 0.5 } }}
+            animate={{
+              scale: 1,
+              transition: { type: 'spring', bounce: 0.5, duration: 0.5 },
+            }}
             exit={{ scale: 1, translateY: 20, transition: { type: 'just' } }}
             style={{
               backgroundColor: colorBgContainer,
@@ -81,7 +84,9 @@ export const Alert = () => {
                   buttonStyle={action?.style}
                   buttonColor={action?.color}
                   fullWidth={footerFitable}
-                  onClick={(action?.onClick || action?.onClickAsync) ?? onDismiss}
+                  onClick={
+                    (action?.onClick || action?.onClickAsync) ?? onDismiss
+                  }
                   skipAnimation
                 >
                   {action?.lable}

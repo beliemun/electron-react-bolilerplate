@@ -1,36 +1,35 @@
-import { Text } from '../text';
 import { CSSProperties } from 'styled-components';
-import loading_white from '@assets/lotties/loading-white.lottie';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import loading_white from '@assets/lotties/loading-white.json';
+import loading_primary from '@assets/lotties/loading-primary.json';
+import Lottie from 'react-lottie-player';
 import { cn } from '@common/utils';
+
+type LoadingColorType = 'white' | 'priarmy';
 
 interface LoadingProps {
   style?: CSSProperties;
+  color?: LoadingColorType;
   calssName?: string;
-  loadingMessage?: string;
 }
 
-export const Loading = ({ style, calssName, loadingMessage }: LoadingProps) => {
+export const Loading = ({
+  style,
+  color = 'white',
+  calssName,
+}: LoadingProps) => {
+  let defaultData: object = loading_white;
+  if (color === 'priarmy') {
+    defaultData = loading_primary;
+  }
   return (
-    <div
-      style={{ ...style }}
-      className={cn(
-        'relative flex flex-col justify-center items-center min-w-32',
-        calssName,
-      )}
-    >
-      <DotLottieReact
-        src={loading_white}
-        speed={1}
+    <div style={{ ...style }} className={cn(calssName)}>
+      <Lottie
+        animationData={defaultData}
+        speed={1.5}
         loop
-        autoplay
-        className="size-32"
+        play
+        className="size-32 -m-12"
       />
-      {loadingMessage ? (
-        <Text type="lg-normal" color="invert">
-          {loadingMessage}
-        </Text>
-      ) : null}
     </div>
   );
 };

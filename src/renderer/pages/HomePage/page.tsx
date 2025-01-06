@@ -1,4 +1,4 @@
-import { Animate, Title } from '@components/atoms';
+import { Animate, Loading, Title } from '@components/atoms';
 import { useNavigate } from 'react-router-dom';
 import BI from '@assets/images/bi_white.png';
 

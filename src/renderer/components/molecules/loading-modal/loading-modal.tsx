@@ -1,17 +1,17 @@
-import loading_white from '@assets/lotties/loading-white.lottie';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { cn } from '@common/utils';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { Text } from '@components/atoms';
+import { Loading, Text } from '@components/atoms';
 import { LoadingModalProps } from './types';
+import { useDarkModeStore } from '@stores';
 
 export const LoadingModal = ({
   loading = true,
-  loadingMessage = undefined,
+  message = undefined,
   onClose,
 }: LoadingModalProps) => {
   const [visible, setVisible] = useState(true);
+  const { isDarkMode } = useDarkModeStore();
 
   useEffect(() => {
     setVisible(loading);
@@ -29,10 +29,14 @@ export const LoadingModal = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          style={{
+            backgroundColor: isDarkMode
+              ? 'rgba(30, 30, 30, 0.7)'
+              : 'rgba(240, 240, 240, 0.7)',
+          }}
           className={cn(
             'fixed flex flex-col justify-center items-center w-full h-full min-h-screen',
-            'top-0 left-0 bottom-0 right-0 m-auto gap-4 z-50',
-            'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500',
+            'inset-0 m-auto backdrop-blur-sm',
           )}
         >
           <div
@@ -40,16 +44,10 @@ export const LoadingModal = ({
               'relative flex flex-col justify-center items-center min-w-32'
             }
           >
-            <DotLottieReact
-              src={loading_white}
-              speed={1}
-              loop
-              autoplay
-              className="size-32"
-            />
-            {loadingMessage ? (
-              <Text type="lg-normal" color="invert">
-                {loadingMessage}
+            <Loading color="priarmy" />
+            {message ? (
+              <Text type="lg-normal" className="mt-4">
+                {message}
               </Text>
             ) : null}
           </div>
