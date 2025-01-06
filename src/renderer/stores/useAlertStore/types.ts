@@ -2,7 +2,7 @@ import { ButtonStyleType } from '@components/atoms/button/types';
 import { ColorType } from '@styles/colors';
 import { ReactNode } from 'react';
 
-export type AlertSize = 480 | 640 | 720 | 1024;
+export type AlertSize = 640 | 720 | 1024;
 export type AlertFooterDirection = 'left' | 'right';
 
 export interface AlertAction {

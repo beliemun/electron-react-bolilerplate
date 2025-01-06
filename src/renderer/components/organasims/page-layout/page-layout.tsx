@@ -1,4 +1,4 @@
-import { Title } from '@components/atoms';
+import { Text } from '@components/atoms';
 import { Layout, theme } from 'antd';
 
 interface ContentsLayoutProps {
@@ -16,13 +16,13 @@ export const PageLayout = ({ title, children }: ContentsLayoutProps) => {
       style={{ backgroundColor: colorBgContainer }}
       className={'col-flex overflow-hidden ml-64'}
     >
-      <Title
-        type="h6-semibold"
+      <Text
         style={{ color: colorText }}
         className="flex flex-row justify-start items-center h-20 p-8"
+        type={'sm-bold'}
       >
         {title}
-      </Title>
+      </Text>
       <Layout
         style={{
           color: colorText,

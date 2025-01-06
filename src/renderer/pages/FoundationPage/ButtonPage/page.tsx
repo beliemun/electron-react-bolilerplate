@@ -10,10 +10,10 @@ const ButtonPage = () => {
       {colorList.map((color, index) => (
         <div key={`${color}_${index}`}>
           <Divider orientation="left">{color.toUpperCase()}</Divider>
-          <div className="flex flex-col gap-2 pb-6">
+          <div className="flex flex-col gap-12 pb-12">
             {buttonTypes.map((type, index) => (
               <div
-                className="flex flex-row flex-wrap gap-2 px-8 py-2"
+                className="flex flex-row flex-wrap gap-4 px-8 py-2"
                 key={`${type}_${index}`}
               >
                 <Button buttonSize="xs" buttonColor={color} buttonStyle={type}>

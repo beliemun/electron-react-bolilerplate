@@ -41,7 +41,7 @@ export const Title = ({
   children,
   style,
   className,
-  type = 'h6-semibold',
+  type = 'h3-normal',
   color = 'default',
   as,
   ...rest

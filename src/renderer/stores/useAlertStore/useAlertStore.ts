@@ -10,12 +10,13 @@ const initialData: AlertProps = {
   footerDirection: 'right',
   footerFitable: false,
   loading: false,
-  size: 480,
+  size: 720,
 };
 
 const useAlertStore = create<AlertStore>((set) => ({
   ...initialData,
-  show: ({ title, message, ...rest }) => set({ visible: true, title, message, ...rest }),
+  show: ({ title, message, ...rest }) =>
+    set({ visible: true, title, message, ...rest }),
   onDismiss: () => set({ ...initialData }),
 }));
 

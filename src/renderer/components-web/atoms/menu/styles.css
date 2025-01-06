@@ -1,0 +1,5 @@
+.ant-menu-vertical {
+  max-height: 50vh !important;
+  overflow-x: scroll;
+  overflow-y: auto;
+}

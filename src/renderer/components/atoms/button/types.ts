@@ -1,11 +1,15 @@
 import { ColorType } from '@styles/colors';
 import { TooltipPlacement } from 'antd/es/tooltip';
 import { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export type ButtonRoundType = 'round' | 'pill';
 export type ButtonStyleType = 'solid' | 'outline' | 'ghost' | 'soft';
-export const buttonTypes: ButtonStyleType[] = ['solid', 'outline', 'ghost', 'soft'];
+export const buttonTypes: ButtonStyleType[] = [
+  'solid',
+  'outline',
+  'ghost',
+  'soft',
+];
 
 export type ButtonSizeType = 'xs' | 'sm' | 'default';
 export type ButtonFullWidthType = 'default' | 'full';

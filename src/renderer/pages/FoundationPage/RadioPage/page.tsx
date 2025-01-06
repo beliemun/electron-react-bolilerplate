@@ -1,13 +1,12 @@
 import { Card, Radio, Section, Space, Text } from '@components/atoms';
 import { PageLayout } from '@components/organasims';
-import { radioOptions } from './data';
 
 const RadioPage = () => {
   return (
     <PageLayout title="<Radio />">
       <Section>
         <Card title={'Variants'}>
-          <Space direction="horizontal" gap={16}>
+          <Space direction="horizontal">
             <Radio value={1}>
               <Text type="sm-normal">Default</Text>
             </Radio>
@@ -22,8 +21,21 @@ const RadioPage = () => {
         <Card title={'Radio Group'}>
           <Radio.Group
             className="whitespace-nowrap"
-            options={radioOptions}
-            defaultValue={radioOptions[0]}
+            options={[
+              {
+                label: <Text type="sm-normal">Value 1</Text>,
+                value: 1,
+              },
+              {
+                label: <Text type="sm-normal">Value 2</Text>,
+                value: 2,
+              },
+              {
+                label: <Text type="sm-normal">Value 3</Text>,
+                value: 3,
+              },
+            ]}
+            defaultValue={1}
           />
         </Card>
       </Section>

@@ -8,7 +8,6 @@ import {
   useState,
 } from 'react';
 import { cn } from '@common/utils';
-import { Text } from '@components/atoms';
 import { LoadingOutlined } from '@ant-design/icons';
 import { motion, Variants, useAnimation, MotionProps } from 'framer-motion';
 import { ButtonProps } from './types';
@@ -112,9 +111,8 @@ const Button = (
   };
 
   return (
-    <div>
+    <div className={fullWidth ? 'flex w-full' : 'self-center w-min'}>
       <Tooltip
-        className={fullWidth ? 'flex w-full' : 'self-center w-min'}
         title={tooltipTitle}
         style={tooltipStyle}
         placement={tooltipPlacement}
@@ -139,7 +137,6 @@ const Button = (
                 disabled,
                 loading,
               }),
-              buttonSize === 'default' && 'text-lg',
               className,
             )}
             disabled={disabled || loading}

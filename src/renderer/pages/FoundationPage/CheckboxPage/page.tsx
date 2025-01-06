@@ -7,9 +7,23 @@ import {
   Text,
 } from '@components/atoms';
 import { PageLayout } from '@components/organasims';
+import { CheckboxOptionType } from 'antd';
 import { useState } from 'react';
 
-const options = ['Option A', 'Option B', 'Option C', 'Option D'];
+const options: CheckboxOptionType[] = [
+  {
+    label: <Text type="sm-normal">Option 1</Text>,
+    value: 'Option 1',
+  },
+  {
+    label: <Text type="sm-normal">Option 2</Text>,
+    value: 'Option 2',
+  },
+  {
+    label: <Text type="sm-normal">Option 3</Text>,
+    value: 'Option 3',
+  },
+];
 
 const CheckboxPage = () => {
   const [checkedList, setCheckedList] = useState<string[]>([
@@ -21,7 +35,9 @@ const CheckboxPage = () => {
     checkedList.length > 0 && checkedList.length < options.length;
   const onChange = (e: string[]) => setCheckedList(e);
   const onChangeAll: CheckboxProps['onChange'] = (e) => {
-    setCheckedList(e.target.checked ? options : []);
+    setCheckedList(
+      e.target.checked ? options.map((option) => option.value as string) : [],
+    );
   };
 
   return (

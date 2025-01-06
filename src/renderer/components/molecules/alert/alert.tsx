@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Button, Text, Title } from '@components/atoms';
 import { cn } from '@common/utils';
 import { theme } from 'antd';
@@ -9,7 +8,7 @@ export const Alert = () => {
   const { isDarkMode } = useDarkModeStore();
   const {
     visible,
-    size = 480,
+    size,
     title,
     message,
     contents,
@@ -18,23 +17,7 @@ export const Alert = () => {
     footerFitable = false,
     onDismiss,
   } = useAlertStore();
-  const [isSmallMode, setIsSmallMode] = useState(false);
   const { colorBgContainer, boxShadow } = theme.useToken().token;
-
-  useEffect(() => {
-    const updateCollapsedWidth = () => {
-      if (window.innerWidth < size) {
-        setIsSmallMode(true);
-      } else {
-        setIsSmallMode(false);
-      }
-    };
-    window.addEventListener('resize', updateCollapsedWidth);
-    updateCollapsedWidth();
-    return () => window.removeEventListener('resize', updateCollapsedWidth);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <AnimatePresence>
       {visible ? (
@@ -62,18 +45,12 @@ export const Alert = () => {
             style={{
               backgroundColor: colorBgContainer,
               boxShadow,
-              width: isSmallMode ? undefined : size,
+              width: size,
             }}
-            className={cn(
-              `flex flex-col gap-8 p-8`,
-              isSmallMode ? 'w-full rounded-none' : 'rounded-xl',
-            )}
+            className={cn('flex flex-col gap-8 p-8 rounded-xl')}
           >
             <header className="flex flex-row justify-between items-center">
-              <Title>{title}</Title>
-              {/* <Button buttonColor="slate" buttonStyle="soft" buttonSize="sm" onClick={onDismiss}>
-                <CloseOutlined style={{ color: colorText, fontSize: 10 }} />
-              </Button> */}
+              <Title type={'h3-semibold'}>{title}</Title>
             </header>
             {message ? <Text>{message}</Text> : null}
             {contents}

@@ -612,20 +612,19 @@ export const buttonStyles = ({
   // Rounded Style
   if (buttonRound === 'round') {
     if (buttonSize === 'xs') {
-      styles.push('rounded-md');
+      styles.push('rounded-[12px]');
     } else {
-      styles.push('rounded-lg');
+      styles.push('rounded-[12px]');
     }
   } else if (buttonRound === 'pill') {
     styles.push('rounded-full');
   }
-  // Text Size
   if (buttonSize === 'default') {
-    styles.push('text-sm px-5 leading-12 h-12');
+    styles.push('text-[32px] px-7 py-2');
   } else if (buttonSize === 'sm') {
-    styles.push('text-sm px-4 leading-10 h-10');
+    styles.push('text-[28px] px-6 py-1.5');
   } else if (buttonSize === 'xs') {
-    styles.push('text-xs px-3 leading-6 h-6');
+    styles.push('text-[20px] px-6 py-1.5');
   }
   // Full Width Style
   if (fullWidth) {
@@ -825,5 +824,6 @@ export const waveStyles = ({
       styles.push('bg-rose-500/10 dark:bg-white/10');
     }
   }
+
   return styles.join(' ');
 };
