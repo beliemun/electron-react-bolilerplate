@@ -13,11 +13,11 @@ const ModalPage = () => {
   return (
     <PageLayout title="<Modal />">
       <Divider orientation="left">Basic Modal</Divider>
-      <Section className="pt-2">
+      <Section>
         <Button onClick={handleOpenMoal}>Open Basic Modal</Button>
       </Section>
       <Divider orientation="left">Loading Modal</Divider>
-      <Section className="pt-2">
+      <Section>
         <Button onClick={handleOpenLoadingModal}>Open Loading Modal</Button>
       </Section>
       {isOpenModal ? (

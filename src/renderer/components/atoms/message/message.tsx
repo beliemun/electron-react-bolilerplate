@@ -1,4 +1,5 @@
-import { message, MessageArgsProps } from "antd";
+import './styles.css';
+import { message, MessageArgsProps } from 'antd';
 
 const Message = message;
 

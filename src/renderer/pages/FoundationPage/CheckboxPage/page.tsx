@@ -84,7 +84,7 @@ const CheckboxPage = () => {
               onChange={onChangeAll}
               key={1}
             >
-              <Text type="base-semibold">
+              <Text type="default-semibold">
                 {checkAll ? 'Uncheck all' : 'Check all'}
               </Text>
             </Checkbox>,

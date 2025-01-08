@@ -2,7 +2,6 @@ import { theme } from 'antd';
 import { cn } from '@common/utils';
 import { useDarkModeStore } from '@stores';
 import { Switch } from '@components/atoms';
-import Text from '@components/atoms/text/text';
 
 export const Footer = () => {
   const { isDarkMode, setDarkMode } = useDarkModeStore();

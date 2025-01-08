@@ -52,13 +52,13 @@ const AlretPage = () => {
     <PageLayout title="<Alert />">
       <Divider orientation="left">Basic alert</Divider>
       <>
-        <Section className="pt-2">
+        <Section>
           <Button onClick={() => handleShow({ title: 'Basic alert' })}>
             Show Basic Alert
           </Button>
         </Section>
         <Divider orientation="left">Multiple Buttons</Divider>
-        <Section className="pt-2">
+        <Section>
           <Button
             onClick={() =>
               handleShow({
@@ -85,7 +85,7 @@ const AlretPage = () => {
           </Button>
         </Section>
         <Divider orientation="left">Flex Buttons</Divider>
-        <Section className="pt-2">
+        <Section>
           <Button
             onClick={() =>
               handleShow({

@@ -12,7 +12,7 @@ export const ColorPaletteItems = ({ color }: ColorPaletteItemProp) => {
       const value = (colors[color] as any)[key as any];
       colorComponents.push(
         <div
-          className="flex flex-col justify-center items-center shrink-0 mt-2"
+          className="flex flex-col justify-center items-center shrink-0 m-1 mt-4"
           key={key}
         >
           <div
@@ -22,7 +22,7 @@ export const ColorPaletteItems = ({ color }: ColorPaletteItemProp) => {
           <Text type="sm-semibold" className="hidden xs:inline-block">
             {key}
           </Text>
-          <Text type="xs-light" className="hidden xs:inline-block">
+          <Text type="sm-light" className="hidden xs:inline-block mt-1">
             {value}
           </Text>
         </div>,

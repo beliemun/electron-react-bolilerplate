@@ -6,11 +6,11 @@ const DrawerPage = () => {
   return (
     <PageLayout title="<Drawer />">
       <Divider orientation="left">Basic Drawer</Divider>
-      <Section className="pt-2">
+      <Section>
         <BasicDrawer />
       </Section>
       <Divider orientation="left">Inner Drawer</Divider>
-      <Section className="pt-2">
+      <Section>
         <InnerDrawer />
       </Section>
     </PageLayout>

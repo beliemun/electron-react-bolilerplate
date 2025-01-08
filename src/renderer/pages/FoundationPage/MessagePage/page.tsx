@@ -28,7 +28,7 @@ const MessagePage = () => {
     <PageLayout title="<Message />">
       <Divider orientation="left">Variants</Divider>
       {contextHolder}
-      <Section className="pt-2">
+      <Section>
         <Space direction="horizontal" gap={16}>
           <Button onClick={handleInfo} buttonColor="cyan">
             Info
@@ -45,7 +45,7 @@ const MessagePage = () => {
         </Space>
       </Section>
       <Divider orientation="left">Loading Message</Divider>
-      <Section className="pt-2">
+      <Section>
         <Button onClick={hadnleLoading} buttonColor="primary">
           Loading
         </Button>

@@ -12,7 +12,7 @@ const ImagePage = () => {
   return (
     <PageLayout title="<Image />">
       <Divider orientation="left">Basic Image</Divider>
-      <Section className="pt-2">
+      <Section>
         <Image
           width={300}
           height={300}
@@ -22,7 +22,7 @@ const ImagePage = () => {
         />
       </Section>
       <Divider orientation="left">Image Group</Divider>
-      <Section className="pt-2">
+      <Section>
         <Image.PreviewGroup items={[URL1, URL2, URL3]}>
           <Image
             width={300}

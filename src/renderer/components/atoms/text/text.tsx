@@ -1,5 +1,12 @@
 import { theme } from 'antd';
-import { CSSProperties, forwardRef, LegacyRef, ReactNode, useEffect, useState } from 'react';
+import {
+  CSSProperties,
+  forwardRef,
+  LegacyRef,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import { cn } from '@common/utils';
 import { ColorType } from '@styles/colors';
 import { TextColor, TextStyle, TextType } from './types';
@@ -37,7 +44,14 @@ const isColorType = (color: string): color is ColorType => {
 };
 
 const Text = (
-  { children, style, className, type = 'base-normal', color = 'default', ...rest }: TextProps,
+  {
+    children,
+    style,
+    className,
+    type = 'default-normal',
+    color = 'default',
+    ...rest
+  }: TextProps,
   ref: LegacyRef<HTMLSpanElement>,
 ) => {
   const [textColor, setTextColor] = useState<string>('default');

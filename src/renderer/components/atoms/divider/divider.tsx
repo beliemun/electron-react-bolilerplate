@@ -11,8 +11,12 @@ export const Divider = ({
   ...rest
 }: DividerProps) => {
   return (
-    <DividerAtnd style={{ ...style }} className={cn(className)} {...rest}>
-      <Text type={'sm-bold'}>
+    <DividerAtnd
+      style={{ ...style, marginBottom: 0 }}
+      className={cn(className)}
+      {...rest}
+    >
+      <Text type={'sm-light'} color="description">
         {children ? capitalizeFirstLetter(String(children)) : null}
       </Text>
     </DividerAtnd>

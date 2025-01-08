@@ -19,7 +19,8 @@ export const PageLayout = ({ title, children }: ContentsLayoutProps) => {
       <Text
         style={{ color: colorText }}
         className="flex flex-row justify-start items-center h-20 p-8"
-        type={'sm-bold'}
+        type={'default-normal'}
+        color="description"
       >
         {title}
       </Text>

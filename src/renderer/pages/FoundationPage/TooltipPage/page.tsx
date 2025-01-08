@@ -5,7 +5,7 @@ const TooltipPage = () => {
   return (
     <PageLayout title={'Tooltip'}>
       <Section>
-        <Card className="max-w-lg">
+        <Card>
           <div className="grid grid-cols-3 grid-rows-3 gap-4">
             <Tooltip title="This is Top Left Tooltip" placement="topLeft">
               <Button fullWidth buttonStyle="soft" buttonColor="rose">

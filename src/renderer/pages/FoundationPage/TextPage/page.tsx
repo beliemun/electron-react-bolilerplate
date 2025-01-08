@@ -5,28 +5,36 @@ const TextPage = () => {
   return (
     <PageLayout title="<Text />">
       <Section>
-        <Card title={'sm(24px)'}>
+        <Card title={'sm(18px)'}>
           <div className="flex flex-col">
-            <Text type="sm-light">sm-light</Text>
-            <Text type="sm-normal">sm-normal</Text>
-            <Text type="sm-semibold">sm-semibold</Text>
-            <Text type="sm-bold">sm-bold</Text>
+            <Text type="sm-light">light</Text>
+            <Text type="sm-normal">normal</Text>
+            <Text type="sm-semibold">semibold</Text>
+            <Text type="sm-bold">bold</Text>
           </div>
         </Card>
-        <Card title={'base(28px)'}>
+        <Card title={'default(24px)'}>
           <div className="flex flex-col text-left">
-            <Text type="base-light">base-light</Text>
-            <Text type="base-normal">base-normal</Text>
-            <Text type="base-semibold">base-semibold</Text>
-            <Text type="base-bold">base-bold</Text>
+            <Text type="default-light">light</Text>
+            <Text type="default-normal">normal</Text>
+            <Text type="default-semibold">semibold</Text>
+            <Text type="default-bold">bold</Text>
           </div>
         </Card>
-        <Card title={'lg(36px)'}>
+        <Card title={'lg(30px)'}>
           <div className="flex flex-col text-left">
-            <Text type="lg-light">lg-light</Text>
-            <Text type="lg-normal">lg-normal</Text>
-            <Text type="lg-semibold">lg-semibold</Text>
-            <Text type="lg-bold">lg-bold</Text>
+            <Text type="lg-light">light</Text>
+            <Text type="lg-normal">normal</Text>
+            <Text type="lg-semibold">semibold</Text>
+            <Text type="lg-bold">bold</Text>
+          </div>
+        </Card>
+        <Card title={'xl(36px)'}>
+          <div className="flex flex-col text-left">
+            <Text type="xl-light">light</Text>
+            <Text type="xl-normal">normal</Text>
+            <Text type="xl-semibold">semibold</Text>
+            <Text type="xl-bold">bold</Text>
           </div>
         </Card>
       </Section>

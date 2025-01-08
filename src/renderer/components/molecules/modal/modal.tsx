@@ -101,14 +101,6 @@ export const Modal = ({
             >
               <header className="flex flex-row justify-between items-center">
                 <Title>{title}</Title>
-                <Button
-                  buttonColor="slate"
-                  buttonStyle="soft"
-                  buttonSize="sm"
-                  onClick={handleClose}
-                >
-                  <CloseOutlined style={{ color: colorText, fontSize: 10 }} />
-                </Button>
               </header>
               {message ? <Text>{message}</Text> : null}
               {children}

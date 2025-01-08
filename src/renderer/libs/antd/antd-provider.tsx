@@ -10,11 +10,20 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
       theme={{
         algorithm: isDarkMode ? theme.darkAlgorithm : undefined,
         token: {
-          borderRadius: 6,
           wireframe: false,
-          fontSize: 14,
+          fontSize: 18, // 기본값 14
+          sizeStep: 6, // 기본값 6
+          sizeUnit: 4, // 기본값 4
           colorPrimary: colors.violet[500],
           colorInfo: colors.violet[500],
+          margin: 24,
+        },
+        components: {
+          Switch: {
+            fontSize: 24,
+            handleSize: 26,
+            trackPadding: 4,
+          },
         },
       }}
     >

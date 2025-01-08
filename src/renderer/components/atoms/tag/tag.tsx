@@ -3,6 +3,7 @@ import { TagSizeType, TagStyleType } from './types';
 import { tagStyles } from './styles';
 import { ColorType } from '@styles/colors';
 import { cn } from '@common/utils';
+import { theme } from 'antd';
 
 export interface TagProps {
   style?: CSSProperties;
@@ -30,6 +31,10 @@ export const Tag = ({
 }: TagProps) => {
   const [hide, setHide] = useState(false);
 
+  const {
+    token: { fontSizeSM },
+  } = theme.useToken();
+
   const handleHide = () => {
     if (onClose) {
       setHide((prev) => !prev);
@@ -42,8 +47,8 @@ export const Tag = ({
       style={{ ...style }}
       className={cn(
         tagStyles({ tagStyle, tagSize, tagColor }),
-        { 'pr-2': tagSize, hidden: hide },
-        'shrink-0 whitespace-nowrap select-none',
+        { hidden: hide },
+        'shrink-0 whitespace-nowrap select-none flex flex-row justify-center items-center m-1',
         className,
       )}
       {...rest}
@@ -51,8 +56,8 @@ export const Tag = ({
       {icon ? (
         <span
           style={{
-            paddingRight: tagSize ? 4 : 6,
-            fontSize: tagSize === 'sm' ? 9 : 12,
+            paddingRight: tagSize ? 6 : 12,
+            fontSize: tagSize === 'sm' ? 14 : 20,
           }}
         >
           {icon}
@@ -62,7 +67,12 @@ export const Tag = ({
       {closable ? (
         <button
           onClick={handleHide}
-          style={{ fontSize: 11, marginLeft: 4, opacity: 0.5 }}
+          style={{
+            fontSize: fontSizeSM,
+            marginLeft: 4,
+            opacity: 0.5,
+            padding: 4,
+          }}
         >
           ✕
         </button>

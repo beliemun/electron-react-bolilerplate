@@ -47,11 +47,11 @@ export default function TransferPage() {
   return (
     <PageLayout title="<Trasfer />">
       <Divider orientation="left">Basic Transfer</Divider>
-      <Section className="pt-2">
+      <Section>
         <BasicTransfer className="w-full" />
       </Section>
       <Divider orientation="left">Table Transfer</Divider>
-      <Section className="pt-2">
+      <Section>
         <TableTransfer
           className="w-full"
           dataSource={mockData}

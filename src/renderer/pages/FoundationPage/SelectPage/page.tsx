@@ -48,7 +48,7 @@ const SelectPage = () => {
   return (
     <PageLayout title="<Select />">
       <Divider orientation="left">Size</Divider>
-      <Section className="pt-2">
+      <Section>
         <Select
           style={{ width: 120 }}
           options={options1}
@@ -96,7 +96,7 @@ const SelectPage = () => {
         />
       </Section>
       <Divider orientation="left">Multiple Mode</Divider>
-      <Section className="pt-2">
+      <Section>
         <Select
           className="max-w-xl w-full"
           options={options2}
@@ -106,7 +106,7 @@ const SelectPage = () => {
         />
       </Section>
       <Divider orientation="left">Tags Mode</Divider>
-      <Section className="pt-2">
+      <Section>
         <Select
           className="max-w-xl w-full"
           options={options2}
@@ -116,7 +116,7 @@ const SelectPage = () => {
         />
       </Section>
       <Divider orientation="left">Max Count</Divider>
-      <Section className="pt-2">
+      <Section>
         <Select
           className="max-w-xl w-full"
           options={options2}
@@ -128,7 +128,7 @@ const SelectPage = () => {
         />
       </Section>
       <Divider orientation="left">With Tags</Divider>
-      <Section className="pt-2">
+      <Section>
         <Select
           className="max-w-xl w-full"
           options={options3}
