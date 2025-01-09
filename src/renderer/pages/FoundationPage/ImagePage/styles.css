@@ -1,0 +1,18 @@
+.ant-image-preview-operations {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.ant-image-preview-close {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.ant-image-preview-switch-left {
+  background-color: rgba(0, 0, 0, 0.4) !important; /* 불투명도 조정 */
+  width: 90px;
+  height: 90px;
+}
+
+.ant-image-preview-switch-right {
+  background-color: rgba(0, 0, 0, 0.4) !important; /* 불투명도 조정 */
+  width: 90px;
+  height: 90px;
+}

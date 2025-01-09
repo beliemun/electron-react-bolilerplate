@@ -88,7 +88,7 @@ const TableEditButton = () => {
     });
   };
   return (
-    <Button buttonSize="xs" buttonStyle="soft" onClick={handleShowAlert}>
+    <Button buttonSize="sm" buttonStyle="soft" onClick={handleShowAlert}>
       Edit
     </Button>
   );
@@ -121,7 +121,7 @@ const TableDeleteButton = () => {
   };
   return (
     <Button
-      buttonSize="xs"
+      buttonSize="sm"
       buttonColor="red"
       buttonStyle="ghost"
       onClick={handleShowAlert}

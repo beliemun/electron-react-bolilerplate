@@ -16,9 +16,6 @@ const ButtonPage = () => {
                 className="flex flex-row flex-wrap gap-4 px-8 py-2"
                 key={`${type}_${index}`}
               >
-                <Button buttonSize="xs" buttonColor={color} buttonStyle={type}>
-                  xs {type}
-                </Button>
                 <Button buttonSize="sm" buttonColor={color} buttonStyle={type}>
                   sm {type}
                 </Button>
@@ -29,16 +26,19 @@ const ButtonPage = () => {
                 >
                   default {type}
                 </Button>
+                <Button buttonSize="lg" buttonColor={color} buttonStyle={type}>
+                  lg {type}
+                </Button>
                 <Button
-                  buttonSize="default"
+                  buttonSize="lg"
                   buttonColor={color}
                   buttonStyle={type}
                   loading
                 >
-                  default {type}
+                  lg {type}
                 </Button>
                 <Button
-                  buttonSize="default"
+                  buttonSize="lg"
                   buttonColor={color}
                   buttonStyle={type}
                   disabled
@@ -47,7 +47,7 @@ const ButtonPage = () => {
                 </Button>
                 <Tooltip title="Home">
                   <Button
-                    buttonSize="default"
+                    buttonSize="lg"
                     buttonColor={color}
                     buttonStyle={type}
                   >

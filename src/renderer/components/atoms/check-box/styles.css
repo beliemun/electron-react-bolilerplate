@@ -1,7 +1,3 @@
-.ant-checkbox-inner {
-  width: 20px !important;
-  height: 20px !important;
-}
 .ant-checkbox {
   transform: rotate(90deg);
   transition: 0.3s all ease;

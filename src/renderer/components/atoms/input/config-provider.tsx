@@ -12,22 +12,22 @@ export const ConfigProvider = ({ children }: { children: ReactNode }) => {
         components: {
           Input: {
             // small
-            inputFontSizeSM: 14,
+            inputFontSizeSM: 16,
             borderRadiusSM: 8,
             paddingInlineSM: 12,
-            paddingBlockSM: 4,
+            paddingBlockSM: 7,
 
             // medium
-            inputFontSize: 14,
+            inputFontSize: 20,
             borderRadius: 8,
-            paddingInline: 14,
+            paddingInline: 13,
             paddingBlock: 8,
 
             // large
-            inputFontSizeLG: 16,
+            inputFontSizeLG: 24,
             borderRadiusLG: 8,
             paddingInlineLG: 14,
-            paddingBlockLG: 11,
+            paddingBlockLG: 12,
 
             // color
             hoverBorderColor: colors.primary[500],

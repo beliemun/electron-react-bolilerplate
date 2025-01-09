@@ -3,7 +3,6 @@ import {
   Radio as RadioAntd,
   RadioProps as RadioAntdProps,
 } from 'antd';
-import './styles.css';
 import { RadioGroup } from './radio-group';
 import { cn } from '@common/utils';
 

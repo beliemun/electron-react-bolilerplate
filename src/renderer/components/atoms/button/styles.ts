@@ -611,21 +611,21 @@ export const buttonStyles = ({
   }
   // Rounded Style
   if (buttonRound === 'round') {
-    if (buttonSize === 'xs') {
+    if (buttonSize === 'sm') {
       styles.push('rounded-[8px]');
-    } else if (buttonSize === 'sm') {
-      styles.push('rounded-[10px]');
     } else if (buttonSize === 'default') {
+      styles.push('rounded-[10px]');
+    } else if (buttonSize === 'lg') {
       styles.push('rounded-[14px]');
     }
   } else if (buttonRound === 'pill') {
     styles.push('rounded-full');
   }
-  if (buttonSize === 'default') {
+  if (buttonSize === 'lg') {
     styles.push('text-[34px] px-7 py-2');
-  } else if (buttonSize === 'sm') {
+  } else if (buttonSize === 'default') {
     styles.push('text-[26px] px-6 py-1.5');
-  } else if (buttonSize === 'xs') {
+  } else if (buttonSize === 'sm') {
     styles.push('text-[18px] px-6 py-1.5');
   }
   // Full Width Style

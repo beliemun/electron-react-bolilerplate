@@ -5,6 +5,7 @@ import {
 import { CSSProperties } from 'react';
 import { ConfigProvider } from './config-provider';
 import { cn } from '@common/utils';
+import './styles.css';
 
 export interface TransferProps extends TransferAntdProps {
   style?: CSSProperties;

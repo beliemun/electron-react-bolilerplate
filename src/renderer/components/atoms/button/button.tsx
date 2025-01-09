@@ -43,7 +43,7 @@ const Button = (
     children,
     buttonRound = 'round',
     buttonStyle = 'solid',
-    buttonSize = 'sm',
+    buttonSize = 'default',
     buttonColor = 'primary',
     fullWidth,
     disabled,

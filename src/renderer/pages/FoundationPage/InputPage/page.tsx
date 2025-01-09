@@ -45,7 +45,7 @@ const InputPage = () => {
     <PageLayout title="<Input />">
       <Section>
         <Card title={'Size'}>
-          <Space direction="vertical" size={16}>
+          <Space direction="vertical">
             <Input placeholder="small" size="small" autoFocus />
             <Input placeholder="middle" size="middle" />
             <Input placeholder="large" size="large" />
@@ -53,7 +53,7 @@ const InputPage = () => {
           </Space>
         </Card>
         <Card title={'Variants'}>
-          <Space direction="vertical" size={16}>
+          <Space direction="vertical">
             <Input placeholder="outlined" variant="outlined" />
             <Input placeholder="filled" variant="filled" />
             <Input placeholder="borderless" variant="borderless" />
@@ -65,7 +65,7 @@ const InputPage = () => {
           </Space>
         </Card>
         <Card title={'Addon'}>
-          <Space direction="vertical" size={16}>
+          <Space direction="vertical">
             <Input placeholder="google" addonBefore="https://" suffix=".com" />
             <Input
               placeholder="google"
@@ -80,29 +80,31 @@ const InputPage = () => {
             <Input
               placeholder="https://google.com"
               addonAfter={<SettingOutlined />}
+              size="small"
+            />
+            <Input
+              placeholder="https://google.com"
+              addonAfter={<SettingOutlined />}
+            />
+            <Input
+              placeholder="https://google.com"
+              addonAfter={<SettingOutlined />}
+              size="large"
             />
           </Space>
         </Card>
         <Card title={'Search'}>
-          <Space direction="vertical" size={16}>
-            <Input.Search placeholder="seach" allowClear />
-            <Input.Search placeholder="loading" loading />
-            <Input.Search placeholder="loading" enterButton />
-            <Input.Search
-              addonBefore="https://"
-              placeholder="google"
-              suffix={
-                <AudioOutlined
-                  style={{ color: colors.primary[500], fontSize: 16 }}
-                />
-              }
-              enterButton
-              loading
-            />
+          <Space direction="vertical">
+            <Input.Search size="small" placeholder="seach" allowClear />
+            <Input.Search size="middle" placeholder="seach" allowClear />
+            <Input.Search size="large" placeholder="seach" allowClear />
+            <Input.Search size="small" placeholder="loading" loading />
+            <Input.Search size="middle" placeholder="loading" loading />
+            <Input.Search size="large" placeholder="loading" loading />
           </Space>
         </Card>
         <Card title={'Tooltip'}>
-          <Space direction="vertical" size={16}>
+          <Space direction="vertical">
             <Input
               placeholder="username"
               prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -142,7 +144,7 @@ const InputPage = () => {
           </Space>
         </Card>
         <Card title={'Password'}>
-          <Space direction="vertical" size={16}>
+          <Space direction="vertical">
             <Input.Password placeholder="password" />
             <Input.Password value={1234567890} />
             <Input.Password value={1234567890} status="warning" />
@@ -154,7 +156,7 @@ const InputPage = () => {
           </Space>
         </Card>
         <Card title={'TextArea'} className="max-w-xl w-full">
-          <Space direction="vertical" size={16} className="w-full">
+          <Space direction="vertical" className="w-full">
             <Input.TextArea
               placeholder="max length is 20"
               style={{ height: 100 }}
@@ -168,7 +170,7 @@ const InputPage = () => {
           </Space>
         </Card>
         <Card title={'Verification Code'}>
-          <Space direction="vertical" size={16} className="w-60">
+          <Space direction="vertical">
             <Input.OTP style={{ width: '100%' }} />
             <Input.OTP style={{ width: '100%' }} variant="filled" />
             <Input.OTP style={{ width: '100%' }} mask="✕" />

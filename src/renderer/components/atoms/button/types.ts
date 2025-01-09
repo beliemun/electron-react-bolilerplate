@@ -11,7 +11,7 @@ export const buttonTypes: ButtonStyleType[] = [
   'soft',
 ];
 
-export type ButtonSizeType = 'xs' | 'sm' | 'default';
+export type ButtonSizeType = 'sm' | 'default' | 'lg';
 export type ButtonFullWidthType = 'default' | 'full';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -30,7 +30,11 @@ export default function TransferPage() {
       dataIndex: 'tag',
       title: 'Tag',
       render: (tag: string) => (
-        <Tag style={{ marginInlineEnd: 0 }} tagColor={tag as ColorType}>
+        <Tag
+          style={{ marginInlineEnd: 0 }}
+          tagColor={tag as ColorType}
+          tagSize="sm"
+        >
           {capitalizeFirstLetter(tag)}
         </Tag>
       ),

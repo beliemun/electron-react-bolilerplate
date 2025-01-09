@@ -10,19 +10,46 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
       theme={{
         algorithm: isDarkMode ? theme.darkAlgorithm : undefined,
         token: {
-          wireframe: false,
-          fontSize: 18, // 기본값 14
-          sizeStep: 6, // 기본값 6
-          sizeUnit: 4, // 기본값 4
+          fontSize: 18,
+          sizeStep: 6,
+          sizeUnit: 4,
           colorPrimary: colors.violet[500],
           colorInfo: colors.violet[500],
-          margin: 24,
         },
         components: {
+          Checkbox: {
+            fontSize: 26,
+            controlInteractiveSize: 30,
+            borderRadiusSM: 8,
+          },
+          Input: {},
+          Image: {
+            previewOperationSize: 48,
+          },
+          Message: {
+            fontSize: 26,
+            fontSizeLG: 34,
+            lineHeight: 2,
+            contentPadding: '12px 24px',
+            borderRadiusLG: 100,
+          },
+          Radio: {
+            radioSize: 30,
+            dotSize: 12,
+          },
           Switch: {
-            fontSize: 24,
-            handleSize: 26,
-            trackPadding: 4,
+            fontSize: 26,
+            // for small size
+            fontSizeSM: 18,
+            innerMinMarginSM: 12,
+            innerMaxMarginSM: 28,
+            trackHeightSM: 24,
+            handleSizeSM: 20,
+          },
+          Transfer: {
+            headerHeight: 60,
+            itemHeight: 40,
+            paddingSM: 12,
           },
         },
       }}

@@ -1,25 +1,32 @@
 /* ConfigProvider로 수정할 수 있는 필드가 존재하지 않아 강제로 CSS 추가 */
 
 .middle .ant-input-search-button {
-  height: 40px !important;
+  width: 46px;
+  height: 46px;
 }
 
 .small .ant-input-search-button {
-  height: 32px !important;
+  width: 40px;
+  height: 40px;
 }
 
 .large .ant-input-search-button {
-  height: 48px !important;
+  width: 60px;
+  height: 60px;
 }
 
 .ant-input-affix-wrapper {
-  height: 40px !important;
+  height: 46px !important;
 }
 
 .ant-input-affix-wrapper-sm {
-  height: 32px !important;
+  height: 40px !important;
 }
 
 .ant-input-affix-wrapper-lg {
-  height: 48px !important;
+  height: 60px !important;
 }
+
+/* .ant-otp input {
+  flex-shrink: 0;
+} */
