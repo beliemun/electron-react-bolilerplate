@@ -88,8 +88,8 @@ const FormPage = () => {
       <Section>
         <Form
           onSubmit={handleSubmit(onSubmit)}
-          title="사원 등록"
-          description="사원 등록을 위해 아래의 양식을 작성해주세요."
+          title="From Component"
+          description="antd 컴포넌트와 react-hook-form을 결합한 예제입니다."
           gap={30}
         >
           <FormItem

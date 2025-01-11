@@ -45,7 +45,7 @@ export const FormItem = ({
     <div
       style={{ ...style, maxWidth }}
       className={cn(
-        'flex gap-2',
+        'flex gap-2 mt-2',
         direction === 'horizontal' ? 'flex-row' : 'flex-col',
         className,
       )}
