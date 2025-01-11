@@ -63,7 +63,6 @@ export const Alert = () => {
               {actions?.map((action, index) => (
                 <Button
                   key={index}
-                  buttonSize={'lg'}
                   buttonStyle={action?.style}
                   buttonColor={action?.color}
                   fullWidth={footerFitable}

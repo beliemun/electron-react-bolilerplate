@@ -29,11 +29,11 @@ export const FormItem = ({
   className,
   htmlFor,
   label,
-  labelType = 'sm-regular',
-  labelWidth = 130,
+  labelType = 'sm-normal',
+  labelWidth = 140,
   direction = 'horizontal',
   required,
-  maxWidth = 640,
+  maxWidth = 720,
   tooltipTitle,
   tooltipTrigger = 'hover',
   tooltipPlacement = 'top',
@@ -68,7 +68,7 @@ export const FormItem = ({
             placement={tooltipPlacement}
           >
             <Text color="description">
-              <QuestionCircleOutlined style={{ fontSize: 14 }} />
+              <QuestionCircleOutlined style={{ fontSize: 18 }} />
             </Text>
           </Tooltip>
         ) : null}
@@ -76,7 +76,7 @@ export const FormItem = ({
       <div className="flex flex-col w-full gap-1">
         {children}
         {extra ? (
-          <Text type="xs-regular" color="disabled" className="mx-1">
+          <Text type="sm-normal" color="disabled" className="mx-1">
             {`• ${extra}`}
           </Text>
         ) : null}

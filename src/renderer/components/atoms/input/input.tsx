@@ -44,7 +44,7 @@ const Input = (
       />
       <div className="flex flex-col space-y-1 mt-1 ml-1">
         {errors?.map((error, index) => (
-          <Text type="sm-regular" color="red" key={index}>
+          <Text type="sm-semibold" color="red" key={index}>
             {'• ' + error}
           </Text>
         ))}

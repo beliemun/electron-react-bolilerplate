@@ -30,10 +30,8 @@ export const Form = ({
       {...rest}
     >
       <div className={'flex flex-col w-full gap-1 mb-1'}>
-        <Title type="h6-semibold">{title}</Title>
-        <Text type="sm-regular" color="description">
-          {description}
-        </Text>
+        <Title type="h3-semibold">{title}</Title>
+        <Text color="description">{description}</Text>
       </div>
       {children}
     </form>

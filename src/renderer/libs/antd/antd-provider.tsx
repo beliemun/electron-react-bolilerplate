@@ -18,7 +18,7 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
         },
         components: {
           Checkbox: {
-            fontSize: 26,
+            fontSize: 18,
             controlInteractiveSize: 30,
             borderRadiusSM: 8,
           },

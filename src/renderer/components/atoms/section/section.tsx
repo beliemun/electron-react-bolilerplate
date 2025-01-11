@@ -23,7 +23,7 @@ export const Section = ({
     <motion.section
       variants={containerVariants}
       {...animationProps}
-      className={cn(`flex flex-wrap w-full p-4 gap-4`, className)}
+      className={cn(`flex flex-wrap w-full p-8 gap-8`, className)}
       {...rest}
     >
       {children}

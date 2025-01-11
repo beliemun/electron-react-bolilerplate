@@ -69,7 +69,7 @@ const SelectPage = () => {
         />
       </Section>
       <Divider orientation="left">Variants</Divider>
-      <Section className="pt-2 ">
+      <Section>
         <Select
           style={{ width: 120 }}
           options={options1}
