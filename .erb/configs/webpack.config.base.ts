@@ -1,9 +1,9 @@
 import webpack from 'webpack';
 import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
 import path from 'path';
+import dotenv from 'dotenv';
 import { dependencies as externals } from '../../release/app/package.json';
 import webpackPaths from './webpack.paths';
-import dotenv from 'dotenv';
 
 // Load environment variables
 const envFile = `.env.${process.env.NODE_ENV || 'development'}`;
