@@ -86,7 +86,7 @@ export const buttonStyles = ({
         cn(
           'text-slate-800 bg-slate-100',
           'hover:bg-slate-200 active:bg-slate-200',
-          'dark:text-white/70 dark:bg-slate-400/10 dark:hover:text-white',
+          'dark:text-white/70 dark:bg-slate-400/20 dark:hover:text-white',
         ),
       );
     }
@@ -123,7 +123,7 @@ export const buttonStyles = ({
         cn(
           'text-gray-800 bg-gray-100',
           'hover:bg-gray-200 active:bg-gray-200',
-          'dark:text-white/70 dark:bg-gray-400/10 dark:hover:text-white',
+          'dark:text-white/70 dark:bg-gray-400/20 dark:hover:text-white',
         ),
       );
     }
@@ -650,7 +650,7 @@ export const buttonStyles = ({
   if (loading) {
     styles.push('pointer-events-none select-none opacity-50');
   }
-  styles.push('focus:outline-none');
+  styles.push('outline-none focus:outline-none');
   return styles.join(' ');
 };
 
@@ -667,163 +667,163 @@ export const waveStyles = ({
   // Button Color
   if (buttonColor === 'primary') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-primary-500/10 dark:bg-primary-500/20');
+      styles.push('bg-primary-500/20 dark:bg-primary-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-primary-500/10 dark:bg-white/10');
+      styles.push('bg-primary-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-primary-500/10 dark:bg-white/10');
+      styles.push('bg-primary-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'slate') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-slate-500/10 dark:bg-slate-500/20');
+      styles.push('bg-slate-500/20 dark:bg-slate-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-slate-500/10 dark:bg-white/10');
+      styles.push('bg-slate-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-slate-500/10 dark:bg-white/10');
+      styles.push('bg-slate-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'gray') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-gray-500/10 dark:bg-gray-500/20');
+      styles.push('bg-gray-500/20 dark:bg-gray-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-gray-500/10 dark:bg-white/10');
+      styles.push('bg-gray-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-gray-500/10 dark:bg-white/10');
+      styles.push('bg-gray-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'red') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-red-500/10 dark:bg-red-500/20');
+      styles.push('bg-red-500/20 dark:bg-red-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-red-500/10 dark:bg-white/10');
+      styles.push('bg-red-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-red-500/10 dark:bg-white/10');
+      styles.push('bg-red-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'orange') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-orange-500/10 dark:bg-orange-500/20');
+      styles.push('bg-orange-500/20 dark:bg-orange-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-orange-500/10 dark:bg-white/10');
+      styles.push('bg-orange-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-orange-500/10 dark:bg-white/10');
+      styles.push('bg-orange-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'yellow') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-yellow-500/10 dark:bg-yellow-500/20');
+      styles.push('bg-yellow-500/20 dark:bg-yellow-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-yellow-500/10 dark:bg-white/10');
+      styles.push('bg-yellow-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-yellow-500/10 dark:bg-white/10');
+      styles.push('bg-yellow-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'lime') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-lime-500/10 dark:bg-lime-500/20');
+      styles.push('bg-lime-500/20 dark:bg-lime-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-lime-500/10 dark:bg-white/10');
+      styles.push('bg-lime-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-lime-500/10 dark:bg-white/10');
+      styles.push('bg-lime-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'green') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-green-500/10 dark:bg-green-500/20');
+      styles.push('bg-green-500/20 dark:bg-green-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-green-500/10 dark:bg-white/10');
+      styles.push('bg-green-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-green-500/10 dark:bg-white/10');
+      styles.push('bg-green-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'emerald') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-emerald-500/10 dark:bg-emerald-500/20');
+      styles.push('bg-emerald-500/20 dark:bg-emerald-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-emerald-500/10 dark:bg-white/10');
+      styles.push('bg-emerald-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-emerald-500/10 dark:bg-white/10');
+      styles.push('bg-emerald-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'teal') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-teal-500/10 dark:bg-teal-500/20');
+      styles.push('bg-teal-500/20 dark:bg-teal-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-teal-500/10 dark:bg-white/10');
+      styles.push('bg-teal-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-teal-500/10 dark:bg-white/10');
+      styles.push('bg-teal-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'cyan') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-cyan-500/10 dark:bg-cyan-500/20');
+      styles.push('bg-cyan-500/20 dark:bg-cyan-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-cyan-500/10 dark:bg-white/10');
+      styles.push('bg-cyan-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-cyan-500/10 dark:bg-white/10');
+      styles.push('bg-cyan-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'blue') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-blue-500/10 dark:bg-blue-500/20');
+      styles.push('bg-blue-500/20 dark:bg-blue-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-blue-500/10 dark:bg-white/10');
+      styles.push('bg-blue-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-blue-500/10 dark:bg-white/10');
+      styles.push('bg-blue-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'violet') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-violet-500/10 dark:bg-violet-500/20');
+      styles.push('bg-violet-500/20 dark:bg-violet-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-violet-500/10 dark:bg-white/10');
+      styles.push('bg-violet-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-violet-500/10 dark:bg-white/10');
+      styles.push('bg-violet-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'purple') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-purple-500/10 dark:bg-purple-500/20');
+      styles.push('bg-purple-500/20 dark:bg-purple-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-purple-500/10 dark:bg-white/10');
+      styles.push('bg-purple-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-purple-500/10 dark:bg-white/10');
+      styles.push('bg-purple-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'pink') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-pink-500/10 dark:bg-pink-500/20');
+      styles.push('bg-pink-500/20 dark:bg-pink-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-pink-500/10 dark:bg-white/10');
+      styles.push('bg-pink-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-pink-500/10 dark:bg-white/10');
+      styles.push('bg-pink-500/20 dark:bg-white/20');
     }
   } else if (buttonColor === 'rose') {
     if (buttonStyle === 'solid') {
-      styles.push('bg-white/20');
+      styles.push('bg-white/40');
     } else if (buttonStyle === 'outline') {
-      styles.push('bg-rose-500/10 dark:bg-rose-500/20');
+      styles.push('bg-rose-500/20 dark:bg-rose-500/20');
     } else if (buttonStyle === 'ghost') {
-      styles.push('bg-rose-500/10 dark:bg-white/10');
+      styles.push('bg-rose-500/20 dark:bg-white/20');
     } else if (buttonStyle === 'soft') {
-      styles.push('bg-rose-500/10 dark:bg-white/10');
+      styles.push('bg-rose-500/20 dark:bg-white/20');
     }
   }
 

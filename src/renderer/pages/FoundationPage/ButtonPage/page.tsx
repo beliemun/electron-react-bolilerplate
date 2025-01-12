@@ -3,6 +3,7 @@ import { Button, Divider, Tooltip } from '@components/atoms';
 import { buttonTypes } from '@components/atoms/button/types';
 import { PageLayout } from '@components/organasims';
 import { colorList } from '@styles/colors';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonPage = () => {
   return (

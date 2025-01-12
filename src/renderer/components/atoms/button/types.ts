@@ -31,5 +31,4 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   showCloseButton?: boolean;
   skipAnimation?: boolean;
   onClick?: () => void;
-  onAsync?: () => Promise<void>;
 }

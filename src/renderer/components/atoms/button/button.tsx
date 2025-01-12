@@ -4,7 +4,6 @@ import {
   forwardRef,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 import { cn } from '@common/utils';
@@ -12,6 +11,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { motion, Variants, useAnimation, MotionProps } from 'framer-motion';
 import { ButtonProps } from './types';
 import { buttonStyles, waveStyles } from './styles';
+import { useButtonControlStore } from '@stores';
 
 const btnVariants: Variants = {
   hidden: { scale: 0.9, opacity: 0 },
@@ -30,10 +30,10 @@ const waveVariants: Variants = {
   hidden: { opacity: 0, scale: 0, transition: { duration: 0 } },
   click: {
     opacity: 1,
-    scale: 1.3,
-    transition: { duration: 0.3, ease: 'easeInOut' },
+    scale: 1.2,
+    transition: { duration: 0.25 },
   },
-  blur: { opacity: 0, scale: 1.2, transition: { duration: 0.2 } },
+  blur: { opacity: 0, scale: 1.2, transition: { duration: 0.25 } },
 };
 
 const Button = (
@@ -54,49 +54,78 @@ const Button = (
     showCloseButton = true,
     skipAnimation = false,
     onClick,
-    onAsync,
     ...rest
   }: ButtonProps & MotionProps,
   ref: ForwardedRef<HTMLButtonElement>,
 ) => {
-  const [isMount, setIsMount] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   // 에니메이션 종료에 따라 리렌더가 되면 안됨
-  const isAnimatingRef = useRef(false);
+  const { isAnimating, setAnimating } = useButtonControlStore();
   const btnController = useAnimation();
   const waveController = useAnimation();
 
   useEffect(() => {
-    setIsMount(true);
-  }, []);
+    setIsMounted(true);
+
+    return () => {
+      // 페이지 언마운트 시 애니메이션 정리
+      setIsMounted(false);
+      btnController.stop();
+      waveController.stop();
+    };
+  }, [btnController, waveController]);
 
   useEffect(() => {
-    if (isMount && !skipAnimation) {
+    if (isMounted && !skipAnimation) {
       btnController.start(btnVariants.visible);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMount]);
+  }, [isMounted]);
 
   const handleClick = useCallback(async () => {
-    if (disabled || loading || isAnimatingRef.current) return;
+    if (disabled || loading || !isMounted) return;
 
-    isAnimatingRef.current = true;
+    // 상태가 true인 경우 클릭 방지
+    if (isAnimating) {
+      console.warn('Another button animation is already running.');
+      return;
+    }
+    setAnimating(true);
 
-    const btnAnimation = btnController.start(btnVariants.click).then(() => {
-      try {
-        // 현재 화면이 unmount 되어 animation.start가 되지 못할 경우, 에러가 발생하여 try-catch 삽입
-        btnController.start(btnVariants.visible);
+    try {
+      // Click 애니메이션
+      if (!isMounted) return;
+      await btnController.start(btnVariants.click);
 
-        const waveAnimation = waveController
-          .start(waveVariants.click)
-          .then(() => waveController.start(waveVariants.blur))
-          .then(() => waveController.start(waveVariants.hidden));
+      btnController.start(btnVariants.visible);
 
-        onClick?.();
-        isAnimatingRef.current = false;
-        Promise.all([btnAnimation, waveAnimation]).then(() => onAsync?.());
-      } catch {}
-    });
-  }, [disabled, loading, btnController, waveController, onClick, onAsync]);
+      // Wave 애니메이션
+      if (!isMounted) return;
+      await waveController.start(waveVariants.click);
+
+      if (!isMounted) return;
+      await waveController.start(waveVariants.blur);
+
+      if (!isMounted) return;
+      await waveController.start(waveVariants.hidden);
+
+      onClick?.();
+    } catch (error) {
+      console.error('Animation interrupted:', error);
+    } finally {
+      setAnimating(false);
+    }
+  }, [
+    disabled,
+    loading,
+    isMounted,
+    isAnimating,
+    btnController,
+    waveController,
+    onClick,
+  ]);
+
+  const handleClickWithoutAnimation = () => onClick?.();
 
   const btnProps = {
     ...(!skipAnimation && { initial: 'hidden' }),
@@ -140,7 +169,7 @@ const Button = (
               className,
             )}
             disabled={disabled || loading}
-            onClick={handleClick}
+            onClick={skipAnimation ? handleClickWithoutAnimation : handleClick}
             {...rest}
           >
             <motion.div
@@ -151,7 +180,9 @@ const Button = (
                 waveStyles({ buttonColor, buttonStyle, disabled, loading }),
               )}
             />
-            {loading ? <LoadingOutlined className="mr-2" /> : null}
+            {disabled || loading || !isMounted ? (
+              <LoadingOutlined className="mr-2" />
+            ) : null}
             <span className={cn('select-none whitespace-nowrap')}>
               {children}
             </span>

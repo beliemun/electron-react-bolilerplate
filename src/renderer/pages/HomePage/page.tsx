@@ -1,4 +1,4 @@
-import { Animate, Loading, Title } from '@components/atoms';
+import { Animate, Loading, Text, Title } from '@components/atoms';
 import { useNavigate } from 'react-router-dom';
 import BI from '@assets/images/bi_white.png';
 
@@ -14,13 +14,13 @@ const HomePage = () => {
     >
       <Animate>
         <div className="flex flex-col justify-between items-center w-full h-screen p-8">
-          <Title type="h5-regular" className="text-center" color="invert">
+          <Text type="lg-normal" className="text-center" color="invert">
             본 솔루션은 두산 에너빌리티와 프보이의 협력으로 개발되었습니다
-          </Title>
+          </Text>
           <div className="flex flex-col justify-center items-center">
             <img src={BI} alt="BI" />
-            <Title type="h4-normal" className="mt-4" color="invert">
-              중장비 AI 충돌 방지 솔루션
+            <Title type="h3-normal" className="mt-4" color="invert">
+              AI기반 중장비 충돌방지 솔루션
             </Title>
           </div>
           <div className="px-12 py-8 rounded-[100px] bg-white/30 animate-pulse">

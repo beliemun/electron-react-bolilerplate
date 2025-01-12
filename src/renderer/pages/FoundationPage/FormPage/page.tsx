@@ -80,8 +80,6 @@ const FormPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(errors);
-
   return (
     <PageLayout title="<Form />">
       {contextHolder}
@@ -200,7 +198,6 @@ const FormPage = () => {
             direction={isSmallMode ? 'vertical' : 'horizontal'}
             label="근무지"
             tooltipTitle="사원의 근무지"
-            extra="Here is extra description"
             required
           >
             <Controller
@@ -248,7 +245,6 @@ const FormPage = () => {
             direction={isSmallMode ? 'vertical' : 'horizontal'}
             label="자기소개"
             tooltipTitle="사원의 자기소개"
-            extra="이곳에 자기소개를 작성할 수 있습니다."
           >
             <Controller
               control={control}
@@ -266,9 +262,6 @@ const FormPage = () => {
           <div className="flex flex-row-reverse max-w-[720px] gap-4">
             <Button type="submit" buttonSize="lg">
               제출
-            </Button>
-            <Button buttonStyle="outline" buttonSize="lg">
-              취소
             </Button>
           </div>
         </Form>

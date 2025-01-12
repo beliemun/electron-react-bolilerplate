@@ -14,7 +14,7 @@ export const PageLayout = ({ title, children }: ContentsLayoutProps) => {
   return (
     <Layout
       style={{ backgroundColor: colorBgContainer }}
-      className={'col-flex overflow-hidden ml-64'}
+      className={'flex flex-col overflow-hidden ml-64'}
     >
       <Text
         style={{ color: colorText }}
@@ -26,6 +26,7 @@ export const PageLayout = ({ title, children }: ContentsLayoutProps) => {
       </Text>
       <Layout
         style={{
+          display: 'block',
           color: colorText,
           backgroundColor: colorBgContainer,
           minHeight: `calc(100vh - ${80}px)`,

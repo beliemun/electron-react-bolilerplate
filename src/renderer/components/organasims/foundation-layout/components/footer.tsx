@@ -20,7 +20,7 @@ export const Footer = () => {
       }}
       className={cn(
         `fixed bottom-0 transition-all duration-200 ease-in-out`,
-        'row-center w-64 h-[60px]',
+        'flex flex-row justify-center items-center w-64 h-[60px]',
       )}
     >
       <Switch

@@ -30,23 +30,23 @@ const MessagePage = () => {
       {contextHolder}
       <Section>
         <Space direction="horizontal" gap={16}>
-          <Button onClick={handleInfo} buttonColor="cyan">
+          <Button skipAnimation onClick={handleInfo} buttonColor="cyan">
             Info
           </Button>
-          <Button onClick={handleSuccess} buttonColor="green">
+          <Button skipAnimation onClick={handleSuccess} buttonColor="green">
             Success
           </Button>
-          <Button onClick={handleWarning} buttonColor="yellow">
+          <Button skipAnimation onClick={handleWarning} buttonColor="yellow">
             Warning
           </Button>
-          <Button onClick={handleError} buttonColor="red">
+          <Button skipAnimation onClick={handleError} buttonColor="red">
             Error
           </Button>
         </Space>
       </Section>
       <Divider orientation="left">Loading Message</Divider>
       <Section>
-        <Button onClick={hadnleLoading} buttonColor="primary">
+        <Button skipAnimation onClick={hadnleLoading} buttonColor="primary">
           Loading
         </Button>
       </Section>

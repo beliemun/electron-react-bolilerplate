@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { theme } from 'antd';
 import { menuItems } from '../data';
 import { Divider, Layout, Menu } from '@components/atoms';
-import { useNavigate } from 'react-router-dom';
 import type { MenuProps } from 'antd';
 import { useDarkModeStore } from '@stores';
 import { Footer } from './footer';
+import { useSafeNavigate } from '@hooks';
 
 interface SiderProps {
   title?: string;
 }
 
 export const Sider = ({ title }: SiderProps) => {
-  const navigate = useNavigate();
+  const navigate = useSafeNavigate();
 
   // 상태 타입 지정
   const [selectedKey, setSelectedKey] = useState<string>('color-pallet');

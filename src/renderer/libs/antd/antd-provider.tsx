@@ -51,6 +51,9 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
             itemHeight: 40,
             paddingSM: 12,
           },
+          Table: {
+            padding: 12,
+          },
         },
       }}
     >
