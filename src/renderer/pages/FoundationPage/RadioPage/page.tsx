@@ -1,5 +1,6 @@
-import { Card, Radio, Section, Space, Text } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Card, Radio, Text } from '@components/atoms';
+import { Section, Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const RadioPage = () => {
   return (

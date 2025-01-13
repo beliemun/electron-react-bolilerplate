@@ -1,15 +1,9 @@
 import { DataType, MemberRoleType } from './types';
-import {
-  Button,
-  Message,
-  Table,
-  TableProps,
-  Tag,
-  Text,
-} from '@components/atoms';
+import { Button, Message, Tag, Text } from '@components/atoms';
 import { capitalizeFirstLetter } from '@common/utils';
 import { ColorType } from '@styles/colors';
 import { useAlertStore } from '@stores';
+import { Table, TableProps } from '@components/organasims';
 
 const columns: TableProps<DataType>['columns'] = [
   {

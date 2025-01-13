@@ -1,8 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
-import { Divider, Section, Select, SelectProps, Tag } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Divider, Select, SelectProps, Tag } from '@components/atoms';
+import { PageLayout } from '@components/tamplates';
 import { useState } from 'react';
 import { options1, options2, options3 } from './data';
+import { Section } from '@components/organasims';
 
 const SelectPage = () => {
   const [value, setValue] = useState<string[]>(['b11']);

@@ -1,6 +1,7 @@
-import { Divider, Image, Section } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Divider, Image } from '@components/atoms';
+import { PageLayout } from '@components/tamplates';
 import './styles.css';
+import { Section } from '@components/organasims';
 
 const URL1 =
   'https://cdn.pixabay.com/photo/2024/07/12/08/05/venice-8889871_1280.jpg';

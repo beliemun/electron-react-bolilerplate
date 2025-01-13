@@ -1,6 +1,7 @@
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { Card, Section, Space, Switch } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Card, Switch } from '@components/atoms';
+import { Section, Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const SwitchPage = () => {
   return (

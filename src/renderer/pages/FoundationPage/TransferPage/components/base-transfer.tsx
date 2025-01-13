@@ -1,4 +1,4 @@
-import { Transfer } from '@components/molecules';
+import { Transfer } from '@components/organasims';
 import { TransferProps } from 'antd';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { Animate, Loading, Text, Title } from '@components/atoms';
+import { Animate, NoticeBoard, Text, Title } from '@components/atoms';
 import { useNavigate } from 'react-router-dom';
 import BI from '@assets/images/bi_white.png';
 
@@ -6,12 +6,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   const handleClickScreen = () => navigate('/foundation');
   return (
-    <main
-      onClick={handleClickScreen}
-      className={
-        'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 cursor-pointer overflow-hidden'
-      }
-    >
+    <main className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
       <Animate>
         <div className="flex flex-col justify-between items-center w-full h-screen p-8">
           <Text type="lg-normal" className="text-center" color="invert">
@@ -23,11 +18,9 @@ const HomePage = () => {
               AI기반 중장비 충돌방지 솔루션
             </Title>
           </div>
-          <div className="px-12 py-8 rounded-[100px] bg-white/30 animate-pulse">
-            <Title type="h3-normal" color="invert">
-              작업을 시작하려면 화면을 눌러주세요
-            </Title>
-          </div>
+          <NoticeBoard onClick={handleClickScreen}>
+            시작하려면 버튼을 눌러주세요.
+          </NoticeBoard>
         </div>
       </Animate>
     </main>

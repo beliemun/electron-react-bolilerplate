@@ -1,13 +1,12 @@
 import {
   Card,
   Checkbox,
+  CheckboxOptionType,
   CheckboxProps,
-  Section,
-  Space,
   Text,
 } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
-import { CheckboxOptionType } from 'antd';
+import { Section, Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 import { useState } from 'react';
 
 const options: CheckboxOptionType[] = [

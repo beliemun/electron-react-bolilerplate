@@ -1,4 +1,4 @@
-import { Section, Divider, Tag } from '@components/atoms';
+import { Divider, Tag } from '@components/atoms';
 import {
   BasicTransfer,
   DataType,
@@ -6,12 +6,12 @@ import {
   TableTransfer,
   TableTransferProps,
 } from './components';
-import { PageLayout } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 import { capitalizeFirstLetter } from '@common/utils';
 import { ColorType } from '@styles/colors';
 import { useState } from 'react';
-import { TransferProps } from '@components/molecules';
 import { TableColumnsType } from 'antd';
+import { Section, TransferProps } from '@components/organasims';
 
 export default function TransferPage() {
   const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);

@@ -1,4 +1,4 @@
-import { Transfer } from '@components/molecules';
+import { Transfer } from '@components/organasims';
 import {
   Table,
   type GetProp,

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { theme } from 'antd';
 import { menuItems } from '../data';
-import { Divider, Layout, Menu } from '@components/atoms';
+import { Divider } from '@components/atoms';
+import { Layout, Menu } from '@components/organasims';
 import type { MenuProps } from 'antd';
 import { useDarkModeStore } from '@stores';
 import { Footer } from './footer';

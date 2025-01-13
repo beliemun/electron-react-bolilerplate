@@ -1,4 +1,4 @@
-import { FoundationLayout } from '@components/organasims';
+import { FoundationLayout } from '@components/tamplates';
 import { foundationRoutes, privateRoutes, publicRoutes } from '@routes';
 import { PrivateGuard, PublicGuard } from '@routes/components';
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';

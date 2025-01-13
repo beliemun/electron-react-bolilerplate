@@ -22,7 +22,9 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
             controlInteractiveSize: 30,
             borderRadiusSM: 8,
           },
-          Input: {},
+          Drawer: {
+            fontSizeLG: 30,
+          },
           Image: {
             previewOperationSize: 48,
           },

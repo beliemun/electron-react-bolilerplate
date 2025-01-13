@@ -1,6 +1,7 @@
-import { Divider, Section } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Divider } from '@components/atoms';
+import { PageLayout } from '@components/tamplates';
 import { BasicDrawer, InnerDrawer } from './components';
+import { Section } from '@components/organasims';
 
 const DrawerPage = () => {
   return (

@@ -1,11 +1,5 @@
-import {
-  Button,
-  Drawer,
-  DrawerProps,
-  Radio,
-  Space,
-  Text,
-} from '@components/atoms';
+import { Button, Radio, Text } from '@components/atoms';
+import { Drawer, DrawerProps, Space } from '@components/organasims';
 import { RadioChangeEvent } from 'antd/lib';
 import { useState } from 'react';
 
@@ -26,7 +20,9 @@ export const BasicDrawer = () => {
           <Radio value={'bottom'}>bottom</Radio>
           <Radio value={'left'}>left</Radio>
         </Radio.Group>
-        <Button onClick={handleOpen}>Open Drawer</Button>
+        <Button onClick={handleOpen} skipAnimation>
+          Open Drawer
+        </Button>
       </Space>
       <Drawer
         title="Drawer Title"

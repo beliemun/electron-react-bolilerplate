@@ -1,5 +1,6 @@
-import { Card, Section, Text } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Card, Text } from '@components/atoms';
+import { Section } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const TextPage = () => {
   return (

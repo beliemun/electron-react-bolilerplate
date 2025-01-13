@@ -1,5 +1,6 @@
-import { Button, Divider, Section } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Button, Divider } from '@components/atoms';
+import { Section } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 import { AlertAction, AlertProps, useAlertStore } from '@stores';
 
 const AlretPage = () => {

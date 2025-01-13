@@ -1,5 +1,6 @@
-import { Button, Divider, Message, Section, Space } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Button, Divider, Message } from '@components/atoms';
+import { Section, Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const MessagePage = () => {
   const [messageApi, contextHolder] = Message.useMessage();

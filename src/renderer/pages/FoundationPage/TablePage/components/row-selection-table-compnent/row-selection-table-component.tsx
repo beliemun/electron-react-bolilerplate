@@ -1,8 +1,9 @@
 import { DataType, MemberRoleType } from './types';
 import { useState } from 'react';
 import { RadioChangeEvent } from 'antd';
-import { Radio, Space, Table, TableProps, Text } from '@components/atoms';
+import { Radio, Text } from '@components/atoms';
 import { ColorType } from '@styles/colors';
+import { Space, Table, TableProps } from '@components/organasims';
 
 const columns: TableProps<DataType>['columns'] = [
   {

@@ -2,7 +2,8 @@ import { DataType, MemberGenderType, MemberRoleType } from './types';
 import { useState } from 'react';
 import { ColorType } from '@styles/colors';
 import { capitalizeFirstLetter } from '@common/utils';
-import { Table, TableProps, Tag } from '@components/atoms';
+import { Tag } from '@components/atoms';
+import { Table, TableProps } from '@components/organasims';
 
 type OnChange = NonNullable<TableProps<DataType>['onChange']>;
 type Filters = Parameters<OnChange>[1];

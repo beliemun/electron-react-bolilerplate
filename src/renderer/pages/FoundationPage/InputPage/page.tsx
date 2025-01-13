@@ -1,5 +1,4 @@
 import {
-  AudioOutlined,
   ExclamationCircleOutlined,
   GithubOutlined,
   GlobalOutlined,
@@ -8,16 +7,9 @@ import {
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import {
-  Card,
-  Input,
-  Section,
-  Select,
-  Space,
-  Tooltip,
-} from '@components/atoms';
-import { PageLayout } from '@components/organasims';
-import { colors } from '@styles/colors';
+import { Card, Input, Select, Tooltip } from '@components/atoms';
+import { Section, Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const selectBefore = (
   <Select

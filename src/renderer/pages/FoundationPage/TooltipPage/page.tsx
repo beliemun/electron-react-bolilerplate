@@ -1,5 +1,6 @@
-import { Button, Card, Section, Tooltip } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Button, Card, Tooltip } from '@components/atoms';
+import { Section } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 
 const TooltipPage = () => {
   return (

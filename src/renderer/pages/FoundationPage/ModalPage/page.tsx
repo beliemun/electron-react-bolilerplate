@@ -1,7 +1,8 @@
-import { Button, Divider, Section } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Button, Divider } from '@components/atoms';
+import { PageLayout } from '@components/tamplates';
 import { ModalComponent, LoadingModalComponent } from './components';
 import { useState } from 'react';
+import { Section } from '@components/organasims';
 
 const ModalPage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);

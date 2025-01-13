@@ -1,6 +1,7 @@
 import { SyncOutlined } from '@ant-design/icons';
-import { Divider, Space, Tag } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Divider, Tag } from '@components/atoms';
+import { Space } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 import { colorList } from '@styles/colors';
 
 const TagPage = () => {

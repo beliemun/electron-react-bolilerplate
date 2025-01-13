@@ -1,4 +1,4 @@
-import { Layout } from '@components/atoms';
+import { Layout } from '@components/organasims';
 import { Sider } from './components';
 import { Outlet } from 'react-router-dom';
 

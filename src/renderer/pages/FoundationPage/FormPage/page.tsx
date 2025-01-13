@@ -4,11 +4,10 @@ import {
   Input,
   Message,
   Radio,
-  Section,
   Select,
 } from '@components/atoms';
-import { Form, FormItem } from '@components/molecules';
-import { PageLayout } from '@components/organasims';
+import { FormItem } from '@components/molecules';
+import { PageLayout } from '@components/tamplates';
 import {
   checkboxOptions,
   multiSelectOptions,
@@ -18,6 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import { cn } from '@common/utils';
 import { Controller, useForm } from 'react-hook-form';
+import { Form, Section } from '@components/organasims';
 
 interface FakeFormData {
   name: string;

@@ -1,4 +1,5 @@
-import { Button, Drawer, Space, Text } from '@components/atoms';
+import { Button, Text } from '@components/atoms';
+import { Drawer, Space } from '@components/organasims';
 import { theme } from 'antd';
 import { useState } from 'react';
 
@@ -25,7 +26,9 @@ export const InnerDrawer = () => {
         borderRadius: borderRadiusLG,
       }}
     >
-      <Button onClick={handleOpen}>Open Drawer</Button>
+      <Button onClick={handleOpen} skipAnimation>
+        Open Drawer
+      </Button>
 
       <Drawer
         title={'Inner Drawer'}

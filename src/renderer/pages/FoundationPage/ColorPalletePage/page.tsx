@@ -1,6 +1,6 @@
 import { capitalizeFirstLetter } from '@common/utils';
 import { Divider } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { PageLayout } from '@components/tamplates';
 import { ColorPaletteItems } from './components/color-palette-item';
 import { colorList } from '@styles/colors';
 

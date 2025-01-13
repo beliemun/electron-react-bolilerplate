@@ -1,10 +1,11 @@
-import { Divider, Section } from '@components/atoms';
-import { PageLayout } from '@components/organasims';
+import { Divider } from '@components/atoms';
+import { PageLayout } from '@components/tamplates';
 import {
   BasicTableComponent,
   FilterTableComponent,
   RowSelectionTableComponent,
 } from './components';
+import { Section } from '@components/organasims';
 
 const TablePage = () => {
   return (
