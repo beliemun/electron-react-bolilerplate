@@ -100,7 +100,7 @@ export const Modal = ({
               layoutId="modal-layout"
             >
               <header className="flex flex-row justify-between items-center">
-                <Title>{title}</Title>
+                <Title type={'h3-semibold'}>{title}</Title>
               </header>
               {message ? <Text>{message}</Text> : null}
               {children}

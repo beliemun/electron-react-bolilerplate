@@ -259,8 +259,8 @@ const FormPage = () => {
             />
           </FormItem>
 
-          <div className="flex flex-row-reverse max-w-[720px] gap-4">
-            <Button type="submit" buttonSize="lg">
+          <div className="max-w-[720px] gap-4">
+            <Button fullWidth type="submit" buttonSize="lg">
               제출
             </Button>
           </div>

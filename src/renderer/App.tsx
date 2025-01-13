@@ -12,37 +12,19 @@ export default function App() {
       }}
     >
       <Routes>
-        <Route
-          element={
-            <AdminDrawer>
-              <FoundationLayout />
-            </AdminDrawer>
-          }
-        >
+        <Route element={<AdminDrawer children={<FoundationLayout />} />}>
           {foundationRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
         </Route>
 
-        <Route
-          element={
-            <AdminDrawer>
-              <PublicGuard />
-            </AdminDrawer>
-          }
-        >
+        <Route element={<AdminDrawer children={<PublicGuard />} />}>
           {publicRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
         </Route>
 
-        <Route
-          element={
-            <AdminDrawer>
-              <PrivateGuard />
-            </AdminDrawer>
-          }
-        >
+        <Route element={<AdminDrawer children={<PrivateGuard />} />}>
           {privateRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
