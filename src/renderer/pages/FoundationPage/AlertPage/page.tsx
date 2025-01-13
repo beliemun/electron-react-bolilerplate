@@ -54,7 +54,10 @@ const AlretPage = () => {
       <Divider orientation="left">Basic alert</Divider>
       <>
         <Section>
-          <Button onClick={() => handleShow({ title: 'Basic alert' })}>
+          <Button
+            onClick={() => handleShow({ title: 'Basic alert' })}
+            skipAnimation
+          >
             Show Basic Alert
           </Button>
         </Section>
@@ -69,6 +72,7 @@ const AlretPage = () => {
               })
             }
             buttonColor="red"
+            skipAnimation
           >
             Left Multiple Buttons
           </Button>
@@ -81,6 +85,7 @@ const AlretPage = () => {
               })
             }
             buttonColor="red"
+            skipAnimation
           >
             Right Multiple Buttons
           </Button>
@@ -97,6 +102,7 @@ const AlretPage = () => {
               })
             }
             buttonColor="blue"
+            skipAnimation
           >
             Left Flex Buttons
           </Button>
@@ -110,6 +116,7 @@ const AlretPage = () => {
               })
             }
             buttonColor="blue"
+            skipAnimation
           >
             Right Flex Buttons
           </Button>

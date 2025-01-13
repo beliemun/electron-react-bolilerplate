@@ -1,4 +1,5 @@
 export * from './drawer';
+export * from './flex';
 export * from './form';
 export * from './layout';
 export * from './menu';

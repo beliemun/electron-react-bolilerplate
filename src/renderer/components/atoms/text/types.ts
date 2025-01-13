@@ -1,5 +1,7 @@
 export type TextColor =
   | 'primary'
+  | 'white'
+  | 'black'
   | 'default'
   | 'description'
   | 'disabled'

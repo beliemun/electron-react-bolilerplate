@@ -10,6 +10,7 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
       theme={{
         algorithm: isDarkMode ? theme.darkAlgorithm : undefined,
         token: {
+          fontFamily: 'Pretendard',
           fontSize: 18,
           sizeStep: 6,
           sizeUnit: 4,
@@ -23,7 +24,8 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
             borderRadiusSM: 8,
           },
           Drawer: {
-            fontSizeLG: 30,
+            fontSizeLG: 28,
+            paddingLG: 18,
           },
           Image: {
             previewOperationSize: 48,
@@ -40,6 +42,7 @@ const AntdProvider = ({ children }: { children: ReactNode }) => {
             dotSize: 12,
           },
           Switch: {
+            colorTextLightSolid: isDarkMode ? 'black' : 'white',
             fontSize: 26,
             // for small size
             fontSizeSM: 18,

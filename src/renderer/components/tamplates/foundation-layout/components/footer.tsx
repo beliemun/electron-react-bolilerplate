@@ -28,7 +28,7 @@ export const Footer = () => {
         checkedChildren={'Dark Mode'}
         unCheckedChildren={'Dark Mode'}
         onChange={handleChangeDarkMode}
-      ></Switch>
+      />
     </footer>
   );
 };

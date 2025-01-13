@@ -73,7 +73,7 @@ export const FormItem = ({
           </Tooltip>
         ) : null}
       </label>
-      <div className="flex flex-col w-full gap-1">
+      <div className="flex flex-col gap-1">
         {children}
         {extra ? (
           <Text type="sm-normal" color="disabled" className="mx-1">

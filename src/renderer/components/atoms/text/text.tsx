@@ -62,6 +62,10 @@ const Text = (
   useEffect(() => {
     if (color === 'default') {
       setTextColor(colorText);
+    } else if (color === 'white') {
+      setTextColor('#fff');
+    } else if (color === 'black') {
+      setTextColor('#000');
     } else if (color === 'description') {
       setTextColor(colorTextDescription);
     } else if (color === 'disabled') {
@@ -70,7 +74,6 @@ const Text = (
       setTextColor(colorBgBase);
     }
   }, [color, colorText, colorTextDescription, colorTextDisabled, colorBgBase]);
-
   return (
     <span
       ref={ref}

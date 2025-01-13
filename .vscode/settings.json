@@ -5,7 +5,12 @@
     ".eslintignore": "ignore"
   },
 
-  "eslint.validate": ["javascript", "javascriptreact", "html", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "typescriptreact"
+  ],
 
   "javascript.validate.enable": false,
   "javascript.format.enable": false,
@@ -22,7 +27,6 @@
     "package-lock.json": true,
     "*.{css,sass,scss}.d.ts": true
   },
-
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.tsdk": "./node_modules/typescript/lib",
   "paths": {

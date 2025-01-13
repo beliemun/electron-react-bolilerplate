@@ -60,6 +60,10 @@ export const Title = ({
   useEffect(() => {
     if (color === 'default') {
       setTitleColor(colorText);
+    } else if (color === 'white') {
+      setTitleColor('#fff');
+    } else if (color === 'black') {
+      setTitleColor('#000');
     } else if (color === 'description') {
       setTitleColor(colorTextDescription);
     } else if (color === 'disabled') {
@@ -68,7 +72,6 @@ export const Title = ({
       setTitleColor(colorBgBase);
     }
   }, [color, colorText, colorTextDescription, colorTextDisabled, colorBgBase]);
-
   return (
     <Component
       style={{ ...style, color: titleColor }}

@@ -24,7 +24,7 @@ import FoundationPage, {
 } from '@pages/FoundationPage';
 
 export const publicRoutes: Route[] = [
-  { path: PATH.HOME, element: <HomePage /> },
+  { path: PATH.HOME, element: <HomePage />, label: 'Home' },
 ];
 
 export const privateRoutes: Route[] = [];

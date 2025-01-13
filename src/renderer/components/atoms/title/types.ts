@@ -1,5 +1,7 @@
 export type TitleColor =
   | 'primary'
+  | 'white'
+  | 'black'
   | 'default'
   | 'description'
   | 'disabled'
