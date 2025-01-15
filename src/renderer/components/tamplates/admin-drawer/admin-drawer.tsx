@@ -2,7 +2,7 @@ import { Button, Input, Message, Select, Switch } from '@components/atoms';
 import { FormItem } from '@components/molecules';
 import { Drawer, Flex, Space } from '@components/organasims';
 import { useAlertStore, useDarkModeStore, useUserStore } from '@stores';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSafeNavigate } from '@hooks';
 import { EquipmentType } from './types';
 import { equipmentOptions, navigateOptions } from './data';
@@ -63,6 +63,20 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
     navigate(path);
     setOpen(false);
   };
+  const handleChangeIpList = (index: number, value: string) => {
+    const ipList = [...user.cameraIpList];
+    ipList[index] = value;
+    user.setCameraIpList(ipList);
+  };
+
+  useEffect(() => {
+    if (user.cameraIpList.length < 1) {
+      const ipList = Array.from({ length: user.equipmentType.camera }).map(
+        (_, index) => `192.168.0.${index + 1}`,
+      );
+      user.setCameraIpList(ipList);
+    }
+  }, [user.cameraIpList]);
 
   return (
     <>
@@ -152,19 +166,14 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
             />
           </FormItem>
           <FormItem label="카메라 IP 설정">
-            {user.cameraIpList.length > 0
-              ? user.cameraIpList.map((ip, index) => (
-                  <Input style={{ width: 200 }} key={index} defaultValue={ip} />
-                ))
-              : Array.from({ length: user.equipmentType.camera }).map(
-                  (_, index) => (
-                    <Input
-                      style={{ width: 200 }}
-                      key={index}
-                      defaultValue={`192.168.0.${index + 1}`}
-                    />
-                  ),
-                )}
+            {user.cameraIpList.map((ip, index) => (
+              <Input
+                style={{ width: 200 }}
+                key={index}
+                defaultValue={ip}
+                onChange={(e) => handleChangeIpList(index, e.target.value)}
+              />
+            ))}
           </FormItem>
         </Space>
       </Drawer>
