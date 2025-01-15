@@ -8,7 +8,11 @@ const initialData: DarkModeProps = {
 const useDarkModeStore = create<DarkModeStore>((set) => ({
   ...initialData,
   setDarkMode: (isDarkMode: boolean) => {
-    document.documentElement.classList.toggle('dark');
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     set({ isDarkMode });
   },
 }));
