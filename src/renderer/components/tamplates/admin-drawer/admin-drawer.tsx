@@ -1,15 +1,11 @@
 import { Button, Input, Message, Select, Switch } from '@components/atoms';
 import { FormItem } from '@components/molecules';
 import { Drawer, Flex, Space } from '@components/organasims';
-import { useDarkModeStore } from '@stores';
+import { useAlertStore, useDarkModeStore, useUserStore } from '@stores';
 import { useState } from 'react';
-
 import { useSafeNavigate } from '@hooks';
-import {
-  equipmentOptions,
-  EquipmentType,
-  navigateOptions,
-} from '@components/tamplates/admin-drawer/data';
+import { EquipmentType } from './types';
+import { equipmentOptions, navigateOptions } from './data';
 
 interface AdminDrawerProps {
   children: React.ReactNode;
@@ -18,12 +14,11 @@ interface AdminDrawerProps {
 const AdminDrawer = ({ children }: AdminDrawerProps) => {
   const navigate = useSafeNavigate();
   const { isDarkMode, setDarkMode } = useDarkModeStore();
+  const user = useUserStore();
   const [open, setOpen] = useState(false);
   const [path, setPath] = useState<string>(String(navigateOptions[0].value));
-  const [equipment, setEquipment] = useState<EquipmentType>(
-    equipmentOptions[1],
-  );
   const [messageApi, contextHolder] = Message.useMessage();
+  const { show, onDismiss } = useAlertStore();
 
   const handleOpenDrawer = () => setOpen(true);
   const handleCloseDrawer = () => setOpen(false);
@@ -31,13 +26,42 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
     navigate('/foundation');
     setOpen(false);
   };
-  const handleChangeDarkMode = (value: boolean) => setDarkMode(value);
+  const handleChangeDarkMode = (value: boolean) => {
+    setDarkMode(value);
+    user.setUseDarkMode(value);
+  };
+  const handleChangeUseFaceRecongnition = (value: boolean) => {
+    user.setUseFaceRecognition(value);
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    user.setPassword(e.target.value);
+  };
+  const handleChangeEquipment = (selectedEquipment: EquipmentType) => {
+    show({
+      title: '중장비 타입 변경',
+      message: '타입을 변경하면 카메라 IP설정이 초기화됩니다. 계속 진행할까요?',
+      actions: [
+        {
+          lable: '취소',
+          style: 'ghost',
+        },
+        {
+          lable: '변경',
+          onClick: () => {
+            user.setCameraIpList([]);
+            user.setEquipmentType(selectedEquipment);
+            onDismiss();
+            messageApi.success(
+              `중장비타입이 '${selectedEquipment.label}'값으로 변경되었습니다.`,
+            );
+          },
+        },
+      ],
+    });
+  };
   const handleNavigate = () => {
     navigate(path);
     setOpen(false);
-  };
-  const handleSaveCameraConfig = () => {
-    messageApi.success('설정이 저장되었습니다.');
   };
 
   return (
@@ -53,16 +77,17 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
             buttonStyle="soft"
             buttonSize="sm"
           >
-            관리자 콘솔
+            개발자 콘솔
           </Button>
         </div>
       ) : null}
       <Drawer
-        title="관리자 콘솔"
+        title="개발자 콘솔"
         placement="right"
         width={500}
         open={open}
         onClose={handleCloseDrawer}
+        zIndex={40}
       >
         <Space direction="vertical">
           <FormItem label="화면이동">
@@ -79,7 +104,7 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
               </Button>
             </Flex>
           </FormItem>
-          <FormItem label="컴포넌트">
+          <FormItem label="컴포넌트" fullWidth={false}>
             <Button
               onClick={handleOpenFoundation}
               skipAnimation
@@ -88,46 +113,58 @@ const AdminDrawer = ({ children }: AdminDrawerProps) => {
               컴포넌트 관리
             </Button>
           </FormItem>
-          <FormItem label="다크모드">
+          <FormItem label="다크모드" fullWidth={false}>
             <Switch
-              className="inline-block"
               value={isDarkMode}
               checkedChildren={'ON'}
               unCheckedChildren={'OFF'}
               onChange={handleChangeDarkMode}
             />
           </FormItem>
+          <FormItem label="안면인식" fullWidth={false}>
+            <Switch
+              value={user.useFaceRecognition}
+              checkedChildren={'ON'}
+              unCheckedChildren={'OFF'}
+              onChange={handleChangeUseFaceRecongnition}
+            />
+          </FormItem>
+          <FormItem label="관리자 비밀번호" fullWidth={false}>
+            <Input.Password
+              style={{ width: 200 }}
+              value={user.password}
+              onChange={handleChangePassword}
+            />
+          </FormItem>
           <FormItem label="중장비 타입">
-            <Flex gap={20}>
-              <Select
-                style={{ width: 200 }}
-                options={equipmentOptions}
-                defaultValue={equipmentOptions[0].value}
-                value={equipment.value}
-                onChange={(value) => {
-                  const selectedEquipment = equipmentOptions.find(
-                    (item) => item.value === value,
-                  );
-                  if (selectedEquipment) setEquipment(selectedEquipment);
-                }}
-              />
-              <Button
-                onClick={handleSaveCameraConfig}
-                buttonSize="sm"
-                skipAnimation
-              >
-                저장
-              </Button>
-            </Flex>
+            <Select
+              style={{ width: 200 }}
+              options={equipmentOptions}
+              value={user.equipmentType}
+              onChange={(value) => {
+                const selectedEquipment = equipmentOptions.find(
+                  (item) => item.value === value,
+                );
+                if (selectedEquipment) {
+                  handleChangeEquipment(selectedEquipment);
+                }
+              }}
+            />
           </FormItem>
           <FormItem label="카메라 IP 설정">
-            {Array.from({ length: equipment.camera }).map((_, index) => (
-              <Input
-                style={{ width: 200 }}
-                key={index}
-                defaultValue={`192.168.0.${index + 1}`}
-              />
-            ))}
+            {user.cameraIpList.length > 0
+              ? user.cameraIpList.map((ip, index) => (
+                  <Input style={{ width: 200 }} key={index} defaultValue={ip} />
+                ))
+              : Array.from({ length: user.equipmentType.camera }).map(
+                  (_, index) => (
+                    <Input
+                      style={{ width: 200 }}
+                      key={index}
+                      defaultValue={`192.168.0.${index + 1}`}
+                    />
+                  ),
+                )}
           </FormItem>
         </Space>
       </Drawer>

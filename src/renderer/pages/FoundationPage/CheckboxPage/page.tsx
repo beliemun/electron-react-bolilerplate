@@ -25,6 +25,7 @@ const options: CheckboxOptionType[] = [
 ];
 
 const CheckboxPage = () => {
+  return <></>;
   const [checkedList, setCheckedList] = useState<string[]>([
     'Option A',
     'Option C',

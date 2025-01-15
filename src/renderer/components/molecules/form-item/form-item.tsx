@@ -18,6 +18,7 @@ interface FormItemProps
   direction?: 'horizontal' | 'vertical';
   required?: boolean;
   maxWidth?: number;
+  fullWidth?: boolean;
   tooltipTitle?: string;
   tooltipTrigger?: 'click' | 'focus' | 'hover';
   tooltipPlacement?: TooltipPlacement;
@@ -34,6 +35,7 @@ export const FormItem = ({
   direction = 'horizontal',
   required,
   maxWidth = 720,
+  fullWidth = true,
   tooltipTitle,
   tooltipTrigger = 'hover',
   tooltipPlacement = 'top',
@@ -73,7 +75,7 @@ export const FormItem = ({
           </Tooltip>
         ) : null}
       </label>
-      <div className="flex flex-col gap-1">
+      <div className={cn('flex flex-col gap-1', { 'w-full': fullWidth })}>
         {children}
         {extra ? (
           <Text type="sm-normal" color="disabled" className="mx-1">

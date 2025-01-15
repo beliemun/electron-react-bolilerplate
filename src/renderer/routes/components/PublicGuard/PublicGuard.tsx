@@ -1,9 +1,17 @@
 import { LoadingModal } from '@components/molecules';
-import { useState } from 'react';
+import { useDarkModeStore, useUserStore } from '@stores';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const PublicGuard = () => {
-  const [preload] = useState(true);
+  const [preload, setPreload] = useState(false);
+  const { useDarkMode } = useUserStore();
+  const { setDarkMode } = useDarkModeStore();
+
+  useEffect(() => {
+    setDarkMode(useDarkMode);
+    setPreload(true);
+  }, []);
 
   if (!preload) {
     return (

@@ -32,7 +32,7 @@ export const Alert = () => {
           }}
           className={cn(
             'fixed flex flex-col justify-center items-center w-full h-full min-h-screen',
-            'inset-0 m-auto backdrop-blur-sm',
+            'inset-0 m-auto backdrop-blur-sm z-50',
           )}
         >
           <motion.div

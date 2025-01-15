@@ -1,4 +1,8 @@
-import { EquipmentType } from '@components/tamplates/admin-drawer/data';
+export interface EquipmentType {
+  label: string;
+  value: string;
+  camera: number;
+}
 
 export interface UserProps {
   password: string | undefined;

@@ -33,7 +33,7 @@ export const foundationRoutes: Route[] = [
   { path: PATH.FOUNDATION, element: <FoundationPage /> },
   { path: PATH.FOUNDATION_ALERT, element: <AlertPage /> },
   { path: PATH.FOUNDATION_BUTTON, element: <ButtonPage /> },
-  { path: PATH.FOUNDATION_CHECKBOX, element: <CheckboxPage /> },
+  // { path: PATH.FOUNDATION_CHECKBOX, element: <CheckboxPage /> },
   { path: PATH.FOUNDATION_COLOR_PALLET, element: <ColorPalletPage /> },
   { path: PATH.FOUNDATION_DRAWER, element: <DrawerPage /> },
   { path: PATH.FOUNDATION_FORM, element: <FormPage /> },

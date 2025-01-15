@@ -1,15 +1,11 @@
 import { publicRoutes } from '@routes';
 import { DefaultOptionType } from 'antd/es/select';
+import { EquipmentType } from './types';
 
 export const navigateOptions: DefaultOptionType[] = publicRoutes.map(
   ({ label, path }) => ({ label, value: path }),
 );
 
-export interface EquipmentType {
-  label: string;
-  value: string;
-  camera: number;
-}
 export const equipmentOptions: EquipmentType[] = [
   {
     label: '지게차(2)',
@@ -22,9 +18,9 @@ export const equipmentOptions: EquipmentType[] = [
     camera: 2,
   },
   {
-    label: '크레인(6)',
+    label: '크레인(8)',
     value: 'crane',
-    camera: 6,
+    camera: 8,
   },
   {
     label: '트랜스포터(3)',
